@@ -5,7 +5,7 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': '',
+        'NAME': 'JUEGO',
         'Trusted_Connection':'yes',
         'HOST':'localhost\\SQLEXPRESS01',
         'OPTIONS':{
