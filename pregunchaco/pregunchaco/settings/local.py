@@ -5,9 +5,9 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'JUEGO',
+        'NAME': 'PregunChaco',
         'Trusted_Connection':'yes',
-        'HOST': 'localhost\\SQLEXPRESS01',
+        'HOST': 'localhost\\SQLEXPRESS',
         'OPTIONS': {
             'driver': 'SQL Server Native Client 11.0',
         }
