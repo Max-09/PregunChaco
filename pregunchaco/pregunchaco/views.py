@@ -8,3 +8,6 @@ def Login(request):
 
 def Game(request):
 	return render(request, 'Game.html')
+
+def Index(request):
+	return render(request, 'Index.html')
