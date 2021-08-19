@@ -104,16 +104,17 @@ p a{
   <div id="logo">
       <img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2' id="logo">
       </div>
-   <form id="login" class="input-group">
-      <input type="text" placeholder="USUARIO" class="input-field" required>
-      <input type="password" placeholder="CONTRASEÑA" class="input-field">
+   <form id="login" class="input-group" method="post">{% csrf_token %}
+      {{form.errors}}
+      <input type="text" name="username" placeholder="USUARIO" class="input-field" required>
+      <input type="password" name="password" placeholder="CONTRASEÑA" class="input-field">
       <button type="submit" class="btn">INICIAR SESION</button>
      <div id="pes">
       <p>OlVIDASTE TU CONTRASEÑA? <a href="#register" onclick="register()"> RECUPERAR</a></p>
       <p>NO ESTAS REGISTRADO? <a href="#register" onclick="register()"> REGISTRATE</a></p>
        </div>
      </form>
-  <form id="register" class="input-group">
+  <form id="register" class="input-group" method="POST">
       <input type="text" placeholder="USUARIO" class="input-field" required>
       <input type="text" placeholder="CORREO" class="input-field" required>
       <input type="password" placeholder="CONTRASEÑA" class="input-field">

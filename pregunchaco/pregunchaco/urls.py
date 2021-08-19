@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pregunchaco.views import Main, Login, Game, Index
+from django.contrib.auth import views as auth
+
+from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Main),
-    path('Login/', Login),
-    path('Game/', Game),
-    path('Index/', Index)
+    path('', views.Main, name= 'main'),
+    path('login/', auth.LoginView.as_view(template_name='login.html'),name='login'),
+    path('Game/', views.Game, name= 'game'),
+    path('Index/', views.Index, name = 'index'),
+    path('logout/', auth.LogoutView.as_view(), name = 'logout'),
+
 ]

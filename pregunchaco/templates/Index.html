@@ -95,9 +95,10 @@ button:hover{
       </div>
     <section id="botones">
       <fieldset id="bot">
+            <h1>Hola {{user.username}}</h1>
             <button>JUGAR</button>
             <button>ESTADISTICAS</button>
-            <button>DESLOGUEAR</button>
+            <button><a href="{% url 'logout'%}">CERRAR CESIÓN</a></button> 
           </fieldset>
         </section>
      <section id="info">

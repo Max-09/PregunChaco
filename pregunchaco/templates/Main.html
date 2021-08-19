@@ -26,7 +26,7 @@ body{
   width: 750px;
 	transform: translatey(0px);
 	animation: float 6s ease-in-out infinite;
-	img { width: 100%; height: auto; }
+	img: { width: 100%; height: auto; }
 }
 @keyframes float {
 	0% {
@@ -95,7 +95,7 @@ button:hover{
       </div>
     <section id="botones">
       <fieldset id="bot">
-            <button>INICIAR SESION</button>
+            <button><a href="{% url 'login'%}">INICIAR CESIÓN</a></button> 
             <button>REGISTRARSE</button>
             <button>TOP SCORES</button>
           </fieldset>
