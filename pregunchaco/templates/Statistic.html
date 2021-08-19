@@ -1,13 +1,11 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/Index.css' %}">
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -30,7 +28,7 @@ body{
   margin: 9% auto;
   padding: 5% 0 0;
   width: 530px;
-  height: 480px;
+  height: 440px;
   background: rgb(193,106,213);
   background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
   border-radius: 20px;
@@ -56,35 +54,62 @@ body{
 #logout img:hover{
   width: 65px;
 }
-#usuario{
+#score{
   margin-top:-30px;
   width: 100%;
   text-align: center;
 }
-#usuario h2{
+#score h2{
   border-box: 10px;
   text-shadow: 2px 0 0 #FFD12B, -2px 0 0 #FFD12B, 0 2px 0 #FFD12B, 0 -2px 0 #FFD12B, 1px 1px #FFD12B, -1px -1px 0 #FFD12B, 1px -1px 0 #FFD12B, -1px 1px 0 #FFD12B;
   color: #FF5758;
-  font-size: 35px;
-  padding: 14px;
+  font-size: 55px;
+  padding: 11px;
 }
-#usuario h1{
+#score h1{
   font-size: 20px;
   color: white;
   margin-top: 5px;
 }
-
-#infou {
-  margin-top: -5px;
-  font-size: 22px;
-  text-align: center;
+#estadisticas{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 17px;
+  margin-top: 20px;
 }
-#infou h5{
+#estadisticas p{
   color: white;
-  font-size: 20px;
 }
-#infou span{
+#estadisticas p scan{
   color: #FFD12B;
+}
+
+#btn{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+button{
+  padding: 10px;
+  width: 40%;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: "Poppins";
+  font-size: 20px;
+  color: white;
+  border: 0px;
+  background: rgb(255,114,119);
+  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
+}
+button:hover{
+  background: rgb(247,115,33);
+  background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
+  color: white;
+  transform: translateY(-3px);
+  width: 41%;
 }
 .socials{
   width: 530px;
@@ -111,59 +136,43 @@ body{
   font-size: 18px;
 }
 
-.btn{
-  text-align: center;
-  height: 250px;
-  width: 100%;
+#compartir{
+  font-size: 15px;
+  color: white;
+  margin-top: 5px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-.btn a{
-  text-decoration: none;
   padding: 20px;
-  width: 50%;
-  margin: 10px;
-  border-radius: 10px;
-  font-family: "Poppins";
-  font-size: 20px;
-  color: white;
-  border: 0px;
-  background: rgb(255,114,119);
-  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
-}
-.btn a:hover{
-  background: rgb(247,115,33);
-  background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
-  color: white;
-  transform: translateY(-3px);
 }
 
 </style>
-<div class="main">
+<body>
+	<div class="main">
   <div id="box">
      <div id="logo">
-        <a target='_blank'><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
+        <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
        </div>
-      <div id="usuario">
-          <h1>¡BIENVENIDO!</h1>
-          <h2>{{user.username}}</h2>
-       </div>
-      <div class="btn">
-        <a href="{% url 'game' %}">JUGAR</a>
-        <a href="#">TOP SCORES</a>
+      <div id="score">
+          <h1>PUNTAJE:</h1>
+          <h2>130</h2>
         </div>
-      <div id="infou">
-          <h5>MEJOR PUNTAJE: <span>103</span></h5>
-          </div>
+      <div id="estadisticas">
+          <p>RESPUESTAS CORRECTAS: <scan>8</scan></p>
+          <p>RESPUESTAS INCORRECTAS: <scan>2</scan></p>
+        </div>
+      <div id="btn">
+          <button>RE-JUGAR</button>
+        </div>
+      <h1 id="compartir">COMPARTIR PUNTAJE:</h1>
     </div>
    <div id="logout">
         <a href="{% url 'logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
      </div>
-   <div class="socials">
+    <div class="socials">
        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FPregunchaco.com" target="_blank" rel="noopener">FACEBOOK</a>
        <a href="#">INSTAGRAM</a>
        <a href="https://twitter.com/intent/tweet?text=PregunChaco.com" data-size="large" target="_blank">TWITTER</a>
       </div>
-    </div>
+</div>
+</body>
+</html>

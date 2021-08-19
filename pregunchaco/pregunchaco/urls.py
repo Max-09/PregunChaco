@@ -24,8 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Main, name= 'main'),
     path('login/', auth.LoginView.as_view(template_name='login.html'),name='login'),
+    path('register/',views.Register, name="register"),
     path('Game/', views.Game, name= 'game'),
     path('Index/', views.Index, name = 'index'),
     path('logout/', auth.LogoutView.as_view(), name = 'logout'),
+    path('statistic/', views.Statistic, name= 'statistic'),
 
 ]

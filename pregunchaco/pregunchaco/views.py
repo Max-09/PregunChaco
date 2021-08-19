@@ -15,6 +15,9 @@ def Registro(request):
 def Main(request):
 	return render(request, 'Main.html')
 
+def Register(request):
+	return render(request, 'Register.html')
+
 @login_required
 def Game(request):
 	return render(request, 'Game.html')
@@ -22,3 +25,8 @@ def Game(request):
 @login_required
 def Index(request):
 	return render(request, 'Index.html')
+
+@login_required
+def Statistic(request):
+	return render(request, 'Statistic.html')
+

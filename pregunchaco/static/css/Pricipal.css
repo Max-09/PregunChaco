@@ -1,13 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/Pricipal.css' %}">
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
 
 *{
   margin: 0;
@@ -26,7 +17,7 @@ body{
   width: 750px;
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
-  img { width: 100%; height: auto; }
+  
 }
 @keyframes float {
   0% {
@@ -92,22 +83,3 @@ fieldset{
   font-size: 23px;
 }
 
-
-</style>
-<body>
-    <div id="logo">
-        <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
-      </div>
-    <section id="botones">
-      <fieldset id="bot">
-            <a href="{% url 'login' %}">INICIAR SESION</a>
-            <a href="{% url 'register' %}">REGISTRARSE</a>
-            <a href="#">TOP SCORES</a>
-          </fieldset>
-        </section>
-     <section id="info">
-       <a href="https://empleo.chaco.gob.ar"><img src="https://empleo.chaco.gob.ar/static/media/logo-fut.b30da876.png" alt="Informatorio" border="0" id="informatorio"></a>
-       <a href='https://postimg.cc/bZGqn8PW' target='_blank'><img src='https://i.postimg.cc/bZGqn8PW/logo.png' border='0' alt='logo' id="cod3r"></a>
-      </section>
-</body>
-</html>

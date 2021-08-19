@@ -14,4 +14,5 @@ DATABASES = {
     }
 }
 
-#prueba ignore
+#Viendo si funciona el ignore
+#No cambie ninguna config de HOST o NAME
