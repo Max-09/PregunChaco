@@ -20,7 +20,7 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGOUT_REDIRECT_URL = reverse_lazy('main')
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('usuarios:login')
 
 
 # Quick-start development settings - unsuitable for production

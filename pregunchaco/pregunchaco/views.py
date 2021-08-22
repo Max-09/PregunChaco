@@ -15,8 +15,6 @@ def Registro(request):
 def Main(request):
 	return render(request, 'Main.html')
 
-def Register(request):
-	return render(request, 'Register.html')
 
 @login_required
 def Game(request):
