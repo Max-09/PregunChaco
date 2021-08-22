@@ -29,7 +29,7 @@ body{
   border-radius: 20px;
   position: relative;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  dispaly: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -111,15 +111,15 @@ a{
       <img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2' id="logo">
       </div>
    <form id="login" method="POST" class="input-group"> {% csrf_token %}
+   
     {{form.username}}
-    {{form.email}}    
+    
+    {{form.email}}
+
     {{form.password1}}
+
     {{form.password2}}
 
-     <!-- <input type="text" field="username" placeholder="USUARIO" class="input-field" required>
-     <input type="email" field="email" placeholder="CORREO" class="input-field">
-     <input type="password" field="contraseña1" placeholder="CONTRASEÑA" class="input-field">
-     <input type="password" field="contraseña2" placeholder="REINGRESAR CONTRASEÑA" class="input-field"> -->
       <button type="submit" class="btn">REGISTRARSE</button>
 
      <div id="pes">
