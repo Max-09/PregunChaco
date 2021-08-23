@@ -109,9 +109,10 @@ p a{
       <img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2' id="logo">
       </div>
    <form id="login" class="input-group" method="post">{% csrf_token %}
-      {{form.errors}}
+  
       <input type="text" name="username" placeholder="USUARIO" class="input-field" required>
       <input type="password" name="password" placeholder="CONTRASEÑA" class="input-field">
+      {{ form.non_field_errors }}
       <button type="submit" class="btn">INICIAR SESION</button>
      <div id="pes">
       <p>OlVIDASTE TU CONTRASEÑA? <a href="#register" onclick="register()"> RECUPERAR</a></p>

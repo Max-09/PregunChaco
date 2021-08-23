@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Main, name= 'main'),
     path('', include('apps.usuarios.urls')),
-    path('Game/', views.Game, name= 'game'),
+    path('', include('apps.juego.urls')),
     path('Index/', views.Index, name = 'index'),
     path('statistic/', views.Statistic, name= 'statistic'),
 

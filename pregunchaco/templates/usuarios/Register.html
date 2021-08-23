@@ -111,6 +111,7 @@ a{
       <img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2' id="logo">
       </div>
    <form id="login" method="POST" class="input-group"> {% csrf_token %}
+    {{form.errors}}
    
     {{form.username}}
     
@@ -119,6 +120,8 @@ a{
     {{form.password1}}
 
     {{form.password2}}
+
+    {{ form.non_field_errors }}
 
       <button type="submit" class="btn">REGISTRARSE</button>
 

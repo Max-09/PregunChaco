@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from . import models
 from . import forms
 from django.contrib import messages
 
