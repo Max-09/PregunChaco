@@ -133,14 +133,14 @@ button:hover{
        </div>
       <div id="box-preg">
       <div id="preg">
-        <h5>{{preguntas.pregunta}}</h5>
+        <h5>¿EN QUE AÑO SE PROVINCIALIZÓ EL CHACO?</h5>
         </div>
     </div>
-      <form id="respuestas" method="POST">{% csrf_token %}
-      <input type="submit" class="btn" name="{{preguntas.op1}}" value="{{preguntas.op1}}">
-      <input type="submit" class="btn" name="{{preguntas.op2}}" value="{{preguntas.op2}}">
-      <input type="submit" class="btn" name="{{preguntas.op3}}" value="{{preguntas.op3}}">
-      <input type="submit" class="btn" name="{{preguntas.op4}}" value="{{preguntas.op4}}">
+      <div id="respuestas">
+      <button class="btn">1 9 5 0</button>
+      <button class="btn">1 9 5 1</button>
+      <button class="btn">1 9 4 5</button>
+      <button class="btn">1 9 5 4</button>
     </div>
       <div class="timer">
        <h1>10</h1>
@@ -148,7 +148,7 @@ button:hover{
     </div>
   
    <div id="logout">
-        <a href="{% url 'usuarios:logout'%}" target='_blank' align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
+        <a href="{% url 'logout'%}" target='_blank' align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
      </div>
    </div>
 

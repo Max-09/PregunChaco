@@ -1,5 +1,5 @@
 from django.db import models
-
+#from .usuarios.models import Usuario
 # Create your models here.
 
 class Categoria(models.Model):
@@ -16,3 +16,11 @@ class PyR(models.Model):
 	op4 = models.CharField(max_length = 150)
 	respuesta = models.CharField(max_length = 150)
 	cat = models.ForeignKey(Categoria, on_delete = models.SET_NULL , null = True)
+
+	def ObtenerPregunta(self):
+		objeto = self.PyR.objects.get(id = 1)
+		return objeto
+
+#class Puntos(models.Model):
+	#id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = False)
+	#aciertos = models.IntegerField(default = 0) 

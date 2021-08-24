@@ -1,11 +1,9 @@
 from django import forms
 from . import models
 
-class formjuego(models.PyR):
-    pregunta = forms.CharField(max_length = 150)
-    op1 = forms.CharField(max_length = 150)
-    op2 = forms.CharField(max_length = 150)
-    op3 = forms.CharField(max_length = 150)
-    op4 = forms.CharField(max_length = 150)
-    respuesta = forms.CharField(max_length = 150)
-    cat = forms.CharField(max_length = 50)
+class formJuego(forms.ModelForm):
+    class Meta:
+        model = models.PyR
+        fields = '__all__'
+        #widgets = {forms.TextInput(attrs={'class': 'input-field', 'placeholder':'USUARIO', 'required':'required'}),}
+                       
