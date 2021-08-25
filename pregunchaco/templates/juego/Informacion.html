@@ -18,7 +18,9 @@
         </div>
       <div id="barra">
         </div>
-    	<a href="{% url 'juego:1' %}" class="btn">¡EMPEZAR!</a>
+        <form method="POST">{% csrf_token %}
+    	     <input type="submit" class="btn" name="empezar" value="¡EMPEZAR!">
+        </form>
     </div>
    <div id="logout">
         <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>

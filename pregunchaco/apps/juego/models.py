@@ -1,5 +1,5 @@
 from django.db import models
-#from .usuarios.models import Usuario
+from apps.usuarios.models import Usuario
 # Create your models here.
 
 class Categoria(models.Model):
@@ -24,6 +24,6 @@ class PyR(models.Model):
 		objeto = self.PyR.objects.get(id = 1)
 		return objeto
 
-#class Puntos(models.Model):
-	#id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = False)
-	#aciertos = models.IntegerField(default = 0) 
+class Partida(models.Model):
+	id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = False)
+	aciertos = models.IntegerField(default = 0) 

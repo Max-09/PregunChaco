@@ -5,10 +5,24 @@ import random
 from django.shortcuts import render, redirect
 from . import forms
 from . import models
+from apps.usuarios.models import Usuario
 
 # Create your views here.
 @login_required
 def juego(request):
+	
+
+	if request.method=='POST' and "empezar" in request.POST:
+		partida=models.Partida()
+		current_user = request.user
+		partida.id_usuario=current_user.id
+		partida.save()
+		request.session["id_partida"]=partida.id
+
+		return redirect('juego:1')
+	else:
+		pass
+	
 	return render(request, 'juego/Informacion.html')
 
 
@@ -24,18 +38,21 @@ def pregunta1(request):
 			ids.append(posible.id) #AGREGO LOS IDS DE LAS PREGUNTAS A LA LISTA
 		
 	eleccion=random.choice(ids) #ELIJO UN IDS RANDOM ENTRE LAS PREGUNTAS DE GEO
+	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) #LE DOY EL ID RANDOM
 	context['preguntas'] = fila_pregunta
 
-	puntaje = 0
+	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		puntaje = puntaje + 1
-		
+		id_partida=request.session.get("id_partida")
+		partida=models.Partida.get(id = id_partida)
+		partida.aciertos=partida.aciertos + 1
+		partida.save()
 		return redirect('juego:2')
 
-	else:
-		pass
+	elif request.method=='POST':
+		return redirect('juego:2')
 
 	return render(request,'juego/Game.html',context)
 
