@@ -25,5 +25,5 @@ class PyR(models.Model):
 		return objeto
 
 class Partida(models.Model):
-	id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = False)
+	id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = True)
 	aciertos = models.IntegerField(default = 0) 

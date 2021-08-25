@@ -15,6 +15,6 @@ urlpatterns = [
     path('juego/5', views.pregunta5 ,name='5'),
     path('juego/6', views.pregunta6 ,name='6'),
     path('juego/7', views.pregunta7 ,name='7'),
-    
+    path('juego/estadistica', views.Resultado ,name='estadistica'),
 ]
     
