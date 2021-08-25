@@ -17,6 +17,9 @@ class PyR(models.Model):
 	respuesta = models.CharField(max_length = 150)
 	cat = models.ForeignKey(Categoria, on_delete = models.SET_NULL , null = True)
 
+	def __str__(self):
+		return self.pregunta
+
 	def ObtenerPregunta(self):
 		objeto = self.PyR.objects.get(id = 1)
 		return objeto

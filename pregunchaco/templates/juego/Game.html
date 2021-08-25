@@ -81,7 +81,7 @@ body{
   flex-direction: column;
 }
 
-button{
+.btn{
  padding: 17px;
  margin: 10px;
  width: 70%;
@@ -96,7 +96,7 @@ button{
   color: white;
 }
 
-button:hover{
+.btn:hover{
   background: rgb(247,115,33);
   background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
   color: white;
@@ -137,7 +137,7 @@ button:hover{
         </div>
     </div>
       <form id="respuestas" method="POST">{% csrf_token %}
-      <input type="submit" class="btn" name="{{preguntas.op1}}" value="{{preguntas.op1}}">
+      <input type="submit" class="btn" name="{{preguntas.cat}}" value="{{preguntas.op1}}">
       <input type="submit" class="btn" name="{{preguntas.op2}}" value="{{preguntas.op2}}">
       <input type="submit" class="btn" name="{{preguntas.op3}}" value="{{preguntas.op3}}">
       <input type="submit" class="btn" name="{{preguntas.op4}}" value="{{preguntas.op4}}">
