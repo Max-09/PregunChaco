@@ -17,7 +17,7 @@ body{
   width: 750px;
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
-  
+  img { width: 100%; height: auto; }
 }
 @keyframes float {
   0% {

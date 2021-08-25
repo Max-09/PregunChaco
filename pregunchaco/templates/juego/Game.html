@@ -4,127 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/Game.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/Juego.css' %}">
 </head>
-<style>
-@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-}
-body{
-  height:100%;
-  background: rgb(72,157,228);
-  background: linear-gradient(0deg, rgba(72,157,228,1) 0%, rgba(13,222,235,1) 100%);
-  background-position: center;
-  font-family: "Poppins", Arial;
-}
-.main{
-  height: 100%;
-  display:flex;
-  justify-content: center;
-  position: relative;
-  flex-direction: column;
-  align-items:center;
-}
-#box{
-  margin: 6% auto;
-  padding: 5% 0 0;
-  width: 530px;
-  height: 630px;
-  background: rgb(193,106,213);
-  background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-#logo{
-  display: flex;
-  justify-content: center;
-}
-#logo img{
-  width: 390px;
-  margin-top: -210px;
-}
-#logout img{
-  animation: none;
-  width: 63px;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  transition: 0.5s;
-}
-#logout img:hover{
-  width: 65px;
-}
-#box-preg{
-  width: 470px;
-  height: 250px;
-  margin: auto;
-  margin-top: -60px;
-  border-radius: 10px;
-  border: none;
-  background: white;
-  position: relative;
-}
 
-#preg{
-  position: absolute;
-  top: 40%;
-  left: 30px;
-  font-size: 23px;
-}
-#respuestas{
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.btn{
- padding: 17px;
- margin: 10px;
- width: 70%;
- border-radius: 10px;
- border: none;
- outline: 0;
- cursor: pointer;
- font-size: 17px;
- font-weight: bold;
- background: rgb(255,114,119);
-  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
-  color: white;
-}
-
-.btn:hover{
-  background: rgb(247,115,33);
-  background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
-  color: white;
-  transform: translateY(-3px);
-}
-.timer{
-  width:130px;
-  height:100px;
-  background: rgb(193,106,213);
-  background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
-  position: absolute;
-  top: 115px;
-  right: -135px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  display: flex;
-  align-items:center;
-  justify-content:center;
-}
-.timer h1{
-  color: white;
-  font-size: 40px;
-}
-
-
-
-</style>
 <body>
 	<div class="main">
   <div id="box">
@@ -142,9 +24,7 @@ body{
       <input type="submit" class="btn" name="{{preguntas.op3}}" value="{{preguntas.op3}}">
       <input type="submit" class="btn" name="{{preguntas.op4}}" value="{{preguntas.op4}}">
     </div>
-      <div class="timer">
-       <h1>10</h1>
-      </div>
+      
     </div>
   
    <div id="logout">
