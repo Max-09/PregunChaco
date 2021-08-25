@@ -15,7 +15,7 @@ def juego(request):
 	if request.method=='POST' and "empezar" in request.POST:
 		partida=models.Partida()
 		request.session["id_partida"]=partida.id #GUARDO ID DE LA PARTIDA
-		
+		request.session["aciertos"] = 0
 		return redirect('juego:1')
 	else:
 		pass
@@ -31,9 +31,10 @@ def pregunta1(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
 
-		if posible.cat_id==1: #FILTRO LAS DE GEOGRAFIA
+		if posible.cat_id=="1": #FILTRO LAS DE GEOGRAFIA
 			ids.append(posible.id) #AGREGO LOS IDS DE LAS PREGUNTAS A LA LISTA
-		
+			
+	print(ids)	
 	eleccion=random.choice(ids) #ELIJO UN IDS RANDOM ENTRE LAS PREGUNTAS DE GEO
 	
 	context = {} 
@@ -62,7 +63,7 @@ def pregunta2(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
 
-		if posible.cat_id==2: 
+		if posible.cat_id=="2": 
 			ids.append(posible.id) #AGREGO LOS IDS DE LAS PREGUNTAS A LA LISTA
 		
 	eleccion=random.choice(ids) #ELIJO UN IDS RANDOM ENTRE LAS PREGUNTAS DE GEO
@@ -92,7 +93,7 @@ def pregunta3(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
 
-		if posible.cat_id==3: 
+		if posible.cat_id=="3": 
 			ids.append(posible.id) 
 		
 	eleccion=random.choice(ids)
@@ -119,7 +120,7 @@ def pregunta4(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
 
-		if posible.cat_id==3: 
+		if posible.cat_id=="4": 
 			ids.append(posible.id) 
 		
 	eleccion=random.choice(ids)
@@ -147,7 +148,7 @@ def pregunta5(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
 
-		if posible.cat_id==3: 
+		if posible.cat_id=="5": 
 			ids.append(posible.id) 
 		
 	eleccion=random.choice(ids)
@@ -175,7 +176,7 @@ def pregunta6(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
 
-		if posible.cat_id==3: 
+		if posible.cat_id=="6": 
 			ids.append(posible.id) 
 		
 	eleccion=random.choice(ids)
@@ -186,18 +187,13 @@ def pregunta6(request):
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print(request.session.get("id_partida"))
 		
 		request.session["aciertos"] = 6
-		partida=models.Partida()
+		return redirect('juego:7')
 
-		partida.id_usuario=request.user
-		partida.aciertos=request.session.get("aciertos")
-		partida.save()
-		print()
 
 	elif request.method=='POST':
-		pass
+		return redirect('juego:7')
 
 	return render(request,'juego/Game.html',context)
 
@@ -208,9 +204,9 @@ def pregunta7(request):
 	for i in range(1, cantidad+1):
 		posible=models.PyR.objects.get(id=i)
 
-		if posible.cat_id==2: 
+		if posible.cat_id=="7": 
 			ids.append(posible.id)
-		
+	
 	eleccion=random.choice(ids) 
 	
 	context = {} 
@@ -223,14 +219,17 @@ def pregunta7(request):
 		
 		request.session["aciertos"] = 7
 		partida=models.Partida()
-
 		partida.id_usuario=request.user
 		partida.aciertos=request.session.get("aciertos")
 		partida.save()
-		print()
-
+		
 		return redirect('juego:estadistica')
 	elif request.method=='POST':
+
+		partida=models.Partida()
+		partida.id_usuario=request.user
+		partida.aciertos=request.session.get("aciertos")
+		partida.save()
 
 		return redirect('juego:estadistica')
 
