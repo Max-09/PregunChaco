@@ -30,6 +30,7 @@ def juego(request):
 		partida=models.Partida()
 		request.session["id_partida"]=partida.id #GUARDO ID DE LA PARTIDA
 		request.session["aciertos"] = 0
+		request.session["prueba"] = "prueba"
 		return redirect('juego:1')
 	else:
 		pass
@@ -39,24 +40,28 @@ def juego(request):
 
 @login_required
 def pregunta1(request):
-	
-	conseguir_pregunta(1)
-	
-	context = {} 
-	fila_pregunta = models.PyR.objects.get(id=eleccion) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
-
-	
+	fila_pregunta = None
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
-		print(request.session.get("id_partida")) #SOLO DE PRUEBA, NO HACE NA
+		print(fila_pregunta.respuesta)
+		print(request.POST)
+		print("contesta bien 1") #SOLO DE PRUEBA, NO HACE NA
 		
-		request.session["aciertos"] = 1 #GUARDO EN VARIABLE DE SESION LOS ACIERTOS, PARA GUARDAR EN BASE DE DATOS AL FINAL
+		request.session["aciertos"] += 1 #GUARDO EN VARIABLE DE SESION LOS ACIERTOS, PARA GUARDAR EN BASE DE DATOS AL FINAL
 		
 		return redirect('juego:2')
 
 	elif request.method=='POST':
+		print(fila_pregunta.respuesta)
+		print(request.POST)
+		pass
+		#return redirect('juego:2')
 
-		return redirect('juego:2')
+	conseguir_pregunta(1)
+	print(request.session.get("prueba"))
+	context = {} 
+	fila_pregunta = models.PyR.objects.get(id=eleccion) #LE DOY EL ID RANDOM
+	context['preguntas'] = fila_pregunta
+	print(fila_pregunta.pregunta)
 
 	return render(request,'juego/Game.html',context)
 
@@ -64,117 +69,120 @@ def pregunta1(request):
 def pregunta2(request):
 
 	conseguir_pregunta(2)
-	
+	print(request.session.get("prueba"))
 	context = {} 
-	fila_pregunta = models.PyR.objects.get(id=eleccion) #LE DOY EL ID RANDOM
+	fila_pregunta = models.PyR.objects.get(id=eleccion) 
 	context['preguntas'] = fila_pregunta
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		
-		
-		request.session["aciertos"] = 2
-		
+		print("contesta bien 2")
+		request.session["aciertos"] += 1
 		return redirect('juego:3')
+
 
 	elif request.method=='POST':
-
-		return redirect('juego:3')
+		pass
+		# return redirect('juego:3')
 
 	return render(request,'juego/Game.html',context)
 
 def pregunta3(request):
 
 	conseguir_pregunta(3)
-	
+	print(request.session.get("prueba"))
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
 	context['preguntas'] = fila_pregunta
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		
-		request.session["aciertos"] = 3
+		print("contesta bien 3")
+		request.session["aciertos"] += 1
 		return redirect('juego:4')
 		
 	elif request.method=='POST':
-		return redirect('juego:4')
+		#return redirect('juego:4')
+		pass
 
 	return render(request,'juego/Game.html',context)
 
 def pregunta4(request):
 
 	conseguir_pregunta(4)
-	
+	print(request.session.get("prueba"))
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
 	context['preguntas'] = fila_pregunta
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		
-		request.session["aciertos"] = 4
+		print("contesta bien 4")
+		request.session["aciertos"] += 1
 		return redirect('juego:5')
 		
 
 	elif request.method=='POST':
-		return redirect('juego:5')
+		pass
+		#return redirect('juego:5')
 
 	return render(request,'juego/Game.html',context)
 
 def pregunta5(request):
 
 	conseguir_pregunta(5)
-	
+	print(request.session.get("prueba"))
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
 	context['preguntas'] = fila_pregunta
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		
-		request.session["aciertos"] = 5
+		print("contesta bien 5")
+		request.session["aciertos"] += 1
 		return redirect('juego:6')
 
 
 	elif request.method=='POST':
-		return redirect('juego:6')
+		pass
+		#return redirect('juego:6')
 
 	return render(request,'juego/Game.html',context)
 
 def pregunta6(request):
 
 	conseguir_pregunta(6)
-	
+	print(request.session.get("prueba"))
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
 	context['preguntas'] = fila_pregunta
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		
-		request.session["aciertos"] = 6
+		print("contesta bien 6")
+		request.session["aciertos"] += 1
 		return redirect('juego:7')
 
 
 	elif request.method=='POST':
-		return redirect('juego:7')
+		pass
+		#return redirect('juego:7')
 
 	return render(request,'juego/Game.html',context)
 
 def pregunta7(request):
 
 	conseguir_pregunta(7)
-	
+	print(request.session.get("prueba"))
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
 	context['preguntas'] = fila_pregunta
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print(request.session.get("id_partida"))
+		print("contesta bien 7")
 		
-		request.session["aciertos"] = 7
+		request.session["aciertos"] += 1
 		partida=models.Partida()
 		partida.id_usuario=request.user
 		partida.aciertos=request.session.get("aciertos")
