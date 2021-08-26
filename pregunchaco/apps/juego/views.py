@@ -7,6 +7,20 @@ from . import forms
 from . import models
 from apps.usuarios.models import Usuario
 
+def conseguir_pregunta(cat_id):
+	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
+	ids=[]
+	for i in range(1, cantidad+1):
+		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
+
+		if posible.cat_id==cat_id: #FILTRO LAS DE GEOGRAFIA
+			ids.append(posible.id) #AGREGO LOS IDS DE LAS PREGUNTAS A LA LISTA
+	global eleccion		
+	eleccion=random.choice(ids) #ELIJO UN IDS RANDOM ENTRE LAS PREGUNTAS DE GEO
+	
+	return eleccion
+
+
 # Create your views here.
 @login_required
 def juego(request):
@@ -26,16 +40,7 @@ def juego(request):
 @login_required
 def pregunta1(request):
 	
-	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
-
-		if posible.cat_id=="1": #FILTRO LAS DE GEOGRAFIA
-			ids.append(posible.id) #AGREGO LOS IDS DE LAS PREGUNTAS A LA LISTA
-			
-	print(ids)	
-	eleccion=random.choice(ids) #ELIJO UN IDS RANDOM ENTRE LAS PREGUNTAS DE GEO
+	conseguir_pregunta(1)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) #LE DOY EL ID RANDOM
@@ -58,15 +63,7 @@ def pregunta1(request):
 
 def pregunta2(request):
 
-	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
-
-		if posible.cat_id=="2": 
-			ids.append(posible.id) #AGREGO LOS IDS DE LAS PREGUNTAS A LA LISTA
-		
-	eleccion=random.choice(ids) #ELIJO UN IDS RANDOM ENTRE LAS PREGUNTAS DE GEO
+	conseguir_pregunta(2)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) #LE DOY EL ID RANDOM
@@ -88,15 +85,7 @@ def pregunta2(request):
 
 def pregunta3(request):
 
-	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
-
-		if posible.cat_id=="3": 
-			ids.append(posible.id) 
-		
-	eleccion=random.choice(ids)
+	conseguir_pregunta(3)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
@@ -115,15 +104,7 @@ def pregunta3(request):
 
 def pregunta4(request):
 
-	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
-
-		if posible.cat_id=="4": 
-			ids.append(posible.id) 
-		
-	eleccion=random.choice(ids)
+	conseguir_pregunta(4)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
@@ -143,15 +124,7 @@ def pregunta4(request):
 
 def pregunta5(request):
 
-	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
-
-		if posible.cat_id=="5": 
-			ids.append(posible.id) 
-		
-	eleccion=random.choice(ids)
+	conseguir_pregunta(5)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
@@ -171,15 +144,7 @@ def pregunta5(request):
 
 def pregunta6(request):
 
-	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i) #RECORRO TODAS LAS PREGUNTAS
-
-		if posible.cat_id=="6": 
-			ids.append(posible.id) 
-		
-	eleccion=random.choice(ids)
+	conseguir_pregunta(6)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
@@ -199,15 +164,7 @@ def pregunta6(request):
 
 def pregunta7(request):
 
-	cantidad = models.PyR.objects.all().count() 
-	ids=[]
-	for i in range(1, cantidad+1):
-		posible=models.PyR.objects.get(id=i)
-
-		if posible.cat_id=="7": 
-			ids.append(posible.id)
-	
-	eleccion=random.choice(ids) 
+	conseguir_pregunta(7)
 	
 	context = {} 
 	fila_pregunta = models.PyR.objects.get(id=eleccion) 
