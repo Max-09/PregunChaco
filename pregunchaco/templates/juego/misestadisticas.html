@@ -1,3 +1,39 @@
-{{qpartidasjugadas}}
-{{puntajemaximo}}
-{{puntajepromedio}}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Misestadisticas.css' %}">
+</head>
+<body>
+	<div id="box">
+     <div id="logo">
+        <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
+       </div>
+      <div id="score">
+          <h1>ESTADISTICAS</h1>
+        </div>
+        <div id="barra">
+        </div>
+        
+      <div id="tops">
+          <p>PARTIDAS JUGADAS: <scan>{{qpartidasjugadas}}</scan></p>
+          <p>PUNTAJE MAXIMO<scan>{{puntajemaximo}}</scan></p>
+          <p>PROMEDIO<scan>{{puntajepromedio}}</scan></p>
+          <p>RANKING<scan>3</scan></p>
+        </div>
+      <div id="barra">
+        </div>
+      <div id="btn">
+        <input type=button value="ATRAS" ad onClick="javascript:history.go(-1);">
+        </div>
+    </div>
+</div>
+   <div id="logout">
+        <a href="{% url 'usuarios:login' %}" align="center"><img src='https://i.postimg.cc/brTvr38K/Salir.png' border='0' alt='Logout'/></a>
+     </div>
+
+
+</body>
+</html>

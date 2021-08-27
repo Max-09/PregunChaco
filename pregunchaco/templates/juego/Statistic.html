@@ -22,12 +22,12 @@
           <p>RESPUESTAS INCORRECTAS: <scan>{{errores}}</scan></p>
         </div>
       <div id="btn">
-          <button>RE-JUGAR</button>
+          <a href="{% url 'juego:juego' %}">VOLVER A JUGAR</a>
         </div>
       <h1 id="compartir">COMPARTIR PUNTAJE:</h1>
     </div>
    <div id="logout">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/brTvr38K/Salir.png' border='0' alt='Logout'/></a>
      </div>
     <div class="socials">
        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FPregunchaco.com" target="_blank" rel="noopener">FACEBOOK</a>

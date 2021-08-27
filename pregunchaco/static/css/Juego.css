@@ -39,14 +39,14 @@ body{
 }
 #logout img{
   animation: none;
-  width: 63px;
+  width: 120px;
   position: absolute;
   top: 14px;
   right: 14px;
   transition: 0.5s;
 }
 #logout img:hover{
-  width: 65px;
+  width: 123px;
 }
 #box-preg{
   width: 470px;

@@ -17,8 +17,8 @@ body{
   align-items:center;
   margin: 9% auto;
   padding: 5% 0 0;
-  width: 590px;
-  height: 530px;
+  width: 530px;
+  height: 500px;
   background: rgb(193,106,213);
   background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
   border-radius: 20px;
@@ -38,11 +38,11 @@ body{
   width: 120px;
   position: absolute;
   top: 14px;
-  right: 14px;
+  right: 0px;
   transition: 0.5s;
 }
 #logout img:hover{
-  width: 123px;
+  width: 125px;
 }
 
 h1{
@@ -52,50 +52,79 @@ h1{
   font-size: 40px;
   padding: 11px;
 }
-
-#informacion{
-  margin-top: -110px;
-  height: 80%;
+#score{
+  padding: 10px;
+  margin-top: -30px;
   width: 100%;
-  padding: 20px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
-#informacion p{
-  width: 85%;
-  color: white;
-  font-size: 25px;
-
-}
-#informacion scan{
-  color: #FFD12B;
-}
-
-.btn{
-  margin-top: -20px;
-  text-align: center;
+#ps{
+  height: 80px;
   width: 100%;
-  padding: 25px 60px;
-  cursor: pointer;
-  display: block;
-  background: rgb(255,114,119);
-  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
-  border-radius: 10px;
-  border: none;
-  outline: none;
+  display: flex;
+  justify-content: space-between;
+}
+#score p{
   color: white;
+  display: inline-block;
+  margin: 0 50px;
+  padding: 33px;
   font-size: 20px;
 }
-a{
-  text-decoration: none;
-  font-size: 22px;
+#barra{
+  width: 80%;
+  background-color: white;
+  height: 2px;
 }
-.btn:hover{
+#tops{
+  height: 250px;
+  width: 90%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#tops p{
+  width: 85%;
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+#tops scan{
+  color: #FFD12B;
+}
+#btn{
+  text-align: center;
+  height: 250px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#btn input{
+  text-decoration: none;
+  padding: 20px;
+  width: 35%;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: "Poppins";
+  font-size: 20px;
+  color: white;
+  border: 0px;
+  background: rgb(255,114,119);
+  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
+}
+#btn input:hover{
   background: rgb(247,115,33);
   background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
+
 
