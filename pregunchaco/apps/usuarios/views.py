@@ -12,6 +12,7 @@ def Register(request):
             username = form.cleaned_data['username']
             messages.success(request, f' {username} pudo registrarse correctamente')
             return redirect('usuarios:login')
+
     else:
         form = forms.UserRegisterForm()
     

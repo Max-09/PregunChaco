@@ -98,6 +98,13 @@ a{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
-
+#error{
+  position: absolute;
+  color: white;
+  width: 350px;
+  top: 0px;
+  right: -500px;
+}
 

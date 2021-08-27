@@ -15,9 +15,17 @@
       <img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2' id="logo">
       </div>
    <form id="login" method="POST" class="input-group"> {% csrf_token %}
-    {{form.errors}}
-   
+ 
     <div id="Texto">
+      {% if form.errors %}
+        
+
+      <div id='error'>
+        {% for i in form.errors.values %}
+          {{i}}
+          {% endfor %}
+      </div>
+      {% endif %}
       {{form.username}}
     
       {{form.email}}
@@ -36,13 +44,7 @@
        </div>
      </form>
 
-     {% if message %}
-     {% for message in message %}
-     <div class="alert alert- {{message.tags}}">
-           {{message}}
-     </div>
-     {% endfor %}
-    {% endif %}
+     
 </div>
 
 </body>
