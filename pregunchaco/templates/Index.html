@@ -14,18 +14,18 @@
        </div>
       <div id="usuario">
           <h1>¡BIENVENIDO!</h1>
-          <h2>{{user.username}}</h2>
+          <h2>{{user}}</h2>
        </div>
       <div class="btn">
         <a href="{% url 'juego:juego' %}">JUGAR</a>
-        <a href="#">TOP SCORES</a>
+        <a href="{% url 'juego:mis estadisticas' %}">TOP SCORES</a>
         </div>
       <div id="infou">
           <h5>MEJOR PUNTAJE: <span>{{user.maximo}}</span></h5>
           </div>
     </div>
    <div id="logout">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/W4SH1ZJh/Salir.png' border='0' alt='Logout'/></a>
      </div>
    <div class="socials">
        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FPregunchaco.com" target="_blank" rel="noopener">FACEBOOK</a>

@@ -18,7 +18,10 @@ def Main(request):
 
 @login_required
 def Index(request):
-	return render(request, 'Index.html')
+	context = {}
+	context['user'] = request.user.username.upper()
+
+	return render(request, 'Index.html', context)
 
 
 

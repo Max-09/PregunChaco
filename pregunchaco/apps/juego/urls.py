@@ -16,5 +16,6 @@ urlpatterns = [
     path('juego/6', views.pregunta6 ,name='6'),
     path('juego/7', views.pregunta7 ,name='7'),
     path('juego/estadistica', viewsstats.Resultado ,name='estadistica'),
+    path('juego/mis_estadisticas', viewsstats.mi_estadistica ,name='mis estadisticas')
 ]
     
