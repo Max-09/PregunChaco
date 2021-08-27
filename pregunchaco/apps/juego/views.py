@@ -54,16 +54,29 @@ def juego(request):
 	return render(request, 'juego/Informacion.html')
 
 
-@login_required
-def pregunta1(request):
-
+def traer_pregunta(request):
+	global context, lista_preguntas, fila_pregunta
 	context = {} 
 	lista_preguntas = request.session.get("lista")
 	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0])
+		opciones = [fila_pregunta.op1, fila_pregunta.op2, fila_pregunta.op3, fila_pregunta.op4]
+		
+		random.shuffle(opciones)
 		context['preguntas'] = fila_pregunta
+		context['opcion1'] = opciones[0]
+		context['opcion2'] = opciones[1]
+		context['opcion3'] = opciones[2]
+		context['opcion4'] = opciones[3]
+		return context, request, lista_preguntas, fila_pregunta
+		
 	except:
 		return redirect('juego:estadistica')
+
+@login_required
+def pregunta1(request):
+
+	traer_pregunta(request)
 
 
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
@@ -74,6 +87,7 @@ def pregunta1(request):
 		return redirect('juego:2')
 
 	elif request.method=='POST':
+		
 		lista_preguntas.pop(0)
 		request.session["lista"] = lista_preguntas
 		return redirect('juego:2')
@@ -83,13 +97,7 @@ def pregunta1(request):
 
 def pregunta2(request):
 
-	context = {} 
-	lista_preguntas = request.session.get("lista")
-	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
-		context['preguntas'] = fila_pregunta
-	except:
-		return redirect('juego:estadistica')
+	traer_pregunta(request)
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
@@ -109,13 +117,7 @@ def pregunta2(request):
 
 def pregunta3(request):
 
-	context = {} 
-	lista_preguntas = request.session.get("lista")
-	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
-		context['preguntas'] = fila_pregunta
-	except:
-		return redirect('juego:estadistica')
+	traer_pregunta(request)
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
@@ -136,13 +138,7 @@ def pregunta3(request):
 
 def pregunta4(request):
 
-	context = {} 
-	lista_preguntas = request.session.get("lista")
-	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
-		context['preguntas'] = fila_pregunta
-	except:
-		return redirect('juego:estadistica')
+	traer_pregunta(request)
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
@@ -161,13 +157,7 @@ def pregunta4(request):
 
 def pregunta5(request):
 
-	context = {} 
-	lista_preguntas = request.session.get("lista")
-	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
-		context['preguntas'] = fila_pregunta
-	except:
-		return redirect('juego:estadistica')
+	traer_pregunta(request)
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
@@ -186,14 +176,7 @@ def pregunta5(request):
 	return render(request,'juego/Game.html',context)
 
 def pregunta6(request):
-
-	context = {} 
-	lista_preguntas = request.session.get("lista")
-	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
-		context['preguntas'] = fila_pregunta
-	except:
-		return redirect('juego:estadistica')
+	traer_pregunta(request)
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
@@ -212,14 +195,7 @@ def pregunta6(request):
 
 def pregunta7(request):
 
-	context = {} 
-	lista_preguntas = request.session.get("lista")
-	try:
-		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
-		context['preguntas'] = fila_pregunta
-	except:
-		return redirect('juego:estadistica')
-
+	traer_pregunta(request)
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 		
