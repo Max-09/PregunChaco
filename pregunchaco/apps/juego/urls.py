@@ -3,7 +3,7 @@ from django.urls import path
 
 
 from . import views
-
+from . import viewsstats
 app_name = 'juego'
 
 urlpatterns = [
@@ -15,6 +15,6 @@ urlpatterns = [
     path('juego/5', views.pregunta5 ,name='5'),
     path('juego/6', views.pregunta6 ,name='6'),
     path('juego/7', views.pregunta7 ,name='7'),
-    path('juego/estadistica', views.Resultado ,name='estadistica'),
+    path('juego/estadistica', viewsstats.Resultado ,name='estadistica'),
 ]
     

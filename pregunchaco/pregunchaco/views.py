@@ -17,14 +17,8 @@ def Main(request):
 
 
 @login_required
-def Game(request):
-	return render(request, 'Game.html')
-
-@login_required
 def Index(request):
 	return render(request, 'Index.html')
 
-@login_required
-def Statistic(request):
-	return render(request, 'Statistic.html')
+
 
