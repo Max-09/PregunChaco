@@ -28,6 +28,7 @@ def actualizar_puntaje(request):
 	partida.save() # guardo en BD
 
 
+
 # Create your views here.
 @login_required
 def juego(request):
@@ -58,19 +59,23 @@ def pregunta1(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	print(lista_preguntas)
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
-	print(fila_pregunta.pregunta)
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
+
 
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
 		
 		actualizar_puntaje(request)
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:2')
 
 	elif request.method=='POST':
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:2')
 		
 	return render(request,'juego/Game.html',context)
@@ -80,18 +85,24 @@ def pregunta2(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[1]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
 		actualizar_puntaje(request)
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:3')
 
 
 	elif request.method=='POST':
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:3')
 
 	return render(request,'juego/Game.html',context)
@@ -100,16 +111,24 @@ def pregunta3(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[2]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
 		actualizar_puntaje(request)
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:4')
 		
 	elif request.method=='POST':
+
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:4')
 		
 
@@ -119,17 +138,23 @@ def pregunta4(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[3]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
 		actualizar_puntaje(request)
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:5')
 		
 
 	elif request.method=='POST':
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:5')
 
 	return render(request,'juego/Game.html',context)
@@ -138,18 +163,24 @@ def pregunta5(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[4]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
 		actualizar_puntaje(request)
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:6')
 
 
 	elif request.method=='POST':
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:6')
 
 	return render(request,'juego/Game.html',context)
@@ -158,17 +189,23 @@ def pregunta6(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[5]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 
 		actualizar_puntaje(request)
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:7')
 
 
 	elif request.method=='POST':
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:7')
 
 	return render(request,'juego/Game.html',context)
@@ -177,17 +214,22 @@ def pregunta7(request):
 
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-	fila_pregunta = models.PyR.objects.get(id=lista_preguntas[6]) #LE DOY EL ID RANDOM
-	context['preguntas'] = fila_pregunta
+	try:
+		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0]) 
+		context['preguntas'] = fila_pregunta
+	except:
+		return redirect('juego:estadistica')
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
 		
 		actualizar_puntaje(request)
-		
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:estadistica')
 	elif request.method=='POST':
-
+		lista_preguntas.pop(0)
+		request.session["lista"] = lista_preguntas
 		return redirect('juego:estadistica')
 
 	return render(request,'juego/Game.html',context)
