@@ -1,11 +1,12 @@
+import random
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import PyR
-import random
+from django.db.models import F
 from django.shortcuts import render, redirect
-from . import forms
+
 from . import models
-from apps.usuarios.models import Usuario
+
 
 def conseguir_pregunta(cat_id):
 	cantidad = models.PyR.objects.all().count() #CANTIDAD DE PREGUNTAS
@@ -20,6 +21,12 @@ def conseguir_pregunta(cat_id):
 	
 	return eleccion
 
+def actualizar_puntaje(request):
+	id_partida = request.session.get('id_partida') # consigo el id de la partida en juego
+	partida = models.Partida.objects.get(id=id_partida) # pido a la BD la partida
+	partida.aciertos = F('aciertos')+1 # sumo un punto a columna acierto
+	partida.save() # guardo en BD
+
 
 # Create your views here.
 @login_required
@@ -33,9 +40,12 @@ def juego(request):
 			lista_preguntas.append(eleccion)
 		partida=models.Partida()
 		request.session["lista"] = lista_preguntas
-		request.session["id_partida"]=partida.id #GUARDO ID DE LA PARTIDA
 		request.session["aciertos"] = 0
 		request.session["prueba"] = "prueba"
+		partida.id_usuario=request.user
+		partida.aciertos=request.session.get("aciertos")
+		partida.save()
+		request.session["id_partida"]=partida.id #GUARDO ID DE LA PARTIDA
 		return redirect('juego:1')
 	else:
 		pass
@@ -54,11 +64,8 @@ def pregunta1(request):
 	print(fila_pregunta.pregunta)
 
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
-		print(fila_pregunta.respuesta)
-		print(request.POST)
-		print("contesta bien 1") #SOLO DE PRUEBA, NO HACE NA
 		
-		request.session["aciertos"] += 1 #GUARDO EN VARIABLE DE SESION LOS ACIERTOS, PARA GUARDAR EN BASE DE DATOS AL FINAL
+		actualizar_puntaje(request)
 		
 		return redirect('juego:2')
 
@@ -78,8 +85,8 @@ def pregunta2(request):
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print("contesta bien 2")
-		request.session["aciertos"] += 1
+
+		actualizar_puntaje(request)
 		return redirect('juego:3')
 
 
@@ -98,8 +105,8 @@ def pregunta3(request):
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print("contesta bien 3")
-		request.session["aciertos"] += 1
+
+		actualizar_puntaje(request)
 		return redirect('juego:4')
 		
 	elif request.method=='POST':
@@ -116,8 +123,8 @@ def pregunta4(request):
 	context['preguntas'] = fila_pregunta
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print("contesta bien 4")
-		request.session["aciertos"] += 1
+
+		actualizar_puntaje(request)
 		return redirect('juego:5')
 		
 
@@ -136,8 +143,8 @@ def pregunta5(request):
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print("contesta bien 5")
-		request.session["aciertos"] += 1
+
+		actualizar_puntaje(request)
 		return redirect('juego:6')
 
 
@@ -155,8 +162,8 @@ def pregunta6(request):
 	context['preguntas'] = fila_pregunta
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print("contesta bien 6")
-		request.session["aciertos"] += 1
+
+		actualizar_puntaje(request)
 		return redirect('juego:7')
 
 
@@ -175,21 +182,11 @@ def pregunta7(request):
 
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST:
-		print("contesta bien 7")
 		
-		request.session["aciertos"] += 1
-		partida=models.Partida()
-		partida.id_usuario=request.user
-		partida.aciertos=request.session.get("aciertos")
-		partida.save()
+		actualizar_puntaje(request)
 		
 		return redirect('juego:estadistica')
 	elif request.method=='POST':
-
-		partida=models.Partida()
-		partida.id_usuario=request.user
-		partida.aciertos=request.session.get("aciertos")
-		partida.save()
 
 		return redirect('juego:estadistica')
 
