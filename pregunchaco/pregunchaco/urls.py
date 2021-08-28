@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('apps.usuarios.urls')),
     path('', include('apps.juego.urls')),
     path('Index/', views.Index, name = 'index'),
+    path('ranking/', views.top_estadistica, name = 'ranking'),
     
 
 ]

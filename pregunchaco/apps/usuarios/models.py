@@ -5,3 +5,5 @@ from django.contrib.auth.models import AbstractUser
 
 class Usuario(AbstractUser):
 	maximo = models.IntegerField(default = 0)
+	def __str__(self):
+		return self.maximo

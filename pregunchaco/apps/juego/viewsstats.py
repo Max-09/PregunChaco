@@ -12,8 +12,10 @@ def Resultado(request):
     context={}
     id_partida = request.session.get('id_partida') # consigo el id de la partida en juego
     partida = models.Partida.objects.get(id=id_partida) 
-    puntaje = int((partida.aciertos)*14.29)
-    errores = abs(7- partida.aciertos)	
+    aciertos = (partida.acierto_1 + partida.acierto_2 + partida.acierto_3 + partida.acierto_4 + partida.acierto_5 + partida.acierto_6 + partida.acierto_7)
+    errores = abs(7- aciertos)	
+    puntaje = int(aciertos*14.29)
+    context['aciertos'] = aciertos
     context['puntaje']= puntaje
     context['errores'] = errores
     context['partida']= partida
@@ -34,7 +36,13 @@ def mi_estadistica(request):
     promedio = models.Partida.objects.filter(id_usuario=usuario).values('aciertos').aggregate(Avg('aciertos'))
 
     context['puntajepromedio'] = int(promedio['aciertos__avg']*14.29)
+
+    lista = list(Usuario.objects.all().order_by('-maximo'))
     
+    indice = lista.index(request.user)+1
+    context['indice'] = indice
 
     return render(request,'juego/misestadisticas.html', context)
+
+
 

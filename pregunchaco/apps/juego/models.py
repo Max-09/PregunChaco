@@ -8,6 +8,9 @@ class Categoria(models.Model):
 	def __str__(self):
 		return self.nombre
 
+class Modalidad(Categoria):
+	pass
+
 class PyR(models.Model):
 	pregunta = models.CharField(max_length = 150)
 	op1 = models.CharField(max_length = 150)
@@ -26,4 +29,11 @@ class PyR(models.Model):
 
 class Partida(models.Model):
 	id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = True)
-	aciertos = models.IntegerField(default = 0) 
+	modalidad = models.ForeignKey(Modalidad, on_delete = models.SET_NULL, null = True)
+	acierto_1 = models.IntegerField(default = 0)
+	acierto_2 = models.IntegerField(default = 0)
+	acierto_3 = models.IntegerField(default = 0)
+	acierto_4 = models.IntegerField(default = 0)
+	acierto_5 = models.IntegerField(default = 0)
+	acierto_6 = models.IntegerField(default = 0)
+	acierto_7 = models.IntegerField(default = 0)

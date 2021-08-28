@@ -17,7 +17,7 @@
       <div id="preg">
         <h5>{{preguntas.pregunta}}</h5>
         </div>
-        {% if messages %}
+        <!-- {% if messages %}
 
         {% for message in messages %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,7 +25,7 @@
 
         </div>
         {% endfor %}
-        {% endif %}
+        {% endif %} -->
     </div>
       <form id="respuestas" method="POST">{% csrf_token %}
       <input type="submit" class="btn" name="{{opcion1}}" value="{{opcion1}}">

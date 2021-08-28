@@ -42,8 +42,24 @@ def conseguir_pregunta_categoria(cat_id):
 
 def actualizar_puntaje(request):
 	id_partida = request.session.get('id_partida') # consigo el id de la partida en juego
+	categoria = request.session.get('categoria')
+
 	partida = models.Partida.objects.get(id=id_partida) # pido a la BD la partida
-	partida.aciertos = F('aciertos')+1 # sumo un punto a columna acierto
+	if categoria == 1:
+		partida.acierto_1 = F('acierto_1')+1 # sumo un punto a columna acierto_1
+	elif categoria == 2:
+		partida.acierto_2 = F('acierto_2')+1
+	elif categoria == 3:
+		partida.acierto_3 = F('acierto_3')+1
+	elif categoria == 4:
+		partida.acierto_4 = F('acierto_4')+1
+	elif categoria == 5:
+		partida.acierto_5 = F('acierto_5')+1
+	elif categoria == 6:
+		partida.acierto_6 = F('acierto_6')+1
+	elif categoria == 7:
+		partida.acierto_7 = F('acierto_7')+1
+	print(partida.acierto_1+partida.acierto_2+partida.acierto_3+partida.acierto_4+partida.acierto_5+partida.acierto_6+partida.acierto_7)
 	partida.save() # guardo en BD
 
 
@@ -122,6 +138,7 @@ def traer_pregunta(request):
 		context['opcion2'] = opciones[1]
 		context['opcion3'] = opciones[2]
 		context['opcion4'] = opciones[3]
+		request.session["categoria"] = fila_pregunta.cat.id
 		return context, request, lista_preguntas, fila_pregunta
 		
 	except:
