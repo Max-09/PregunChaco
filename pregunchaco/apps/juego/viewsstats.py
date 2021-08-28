@@ -7,6 +7,7 @@ from apps.usuarios.models import Usuario
 from django.db.models import Avg
 from . import models
 
+@login_required
 def Resultado(request):
     context={}
     id_partida = request.session.get('id_partida') # consigo el id de la partida en juego
@@ -24,6 +25,7 @@ def Resultado(request):
 
     return render(request, 'juego/Statistic.html', context)
 
+@login_required
 def mi_estadistica(request):
     context={}
     usuario = request.user

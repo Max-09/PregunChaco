@@ -1,0 +1,17 @@
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<title></title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/Info.css' %}">
+</head>
+<html>
+    <form method="POST">{% csrf_token %}
+    <input type="submit" class="btn" name="1" value="CULTURA Y ARTE">
+    <input type="submit" class="btn" name="2" value="HISTORIA">
+    <input type="submit" class="btn" name="3" value="DEPORTE">
+    <input type="submit" class="btn" name="4" value="GEOGRAFÍA">
+    <input type="submit" class="btn" name="5" value="ECONOMIA">
+    <input type="submit" class="btn" name="6" value="CIENCIA Y EDUCACIÓN">
+    <input type="submit" class="btn" name="7" value="ENTRETENIMIENTO">
+    </form>
+</html>

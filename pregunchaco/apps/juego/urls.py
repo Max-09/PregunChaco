@@ -15,7 +15,8 @@ urlpatterns = [
     path('juego/5', views.pregunta5 ,name='5'),
     path('juego/6', views.pregunta6 ,name='6'),
     path('juego/7', views.pregunta7 ,name='7'),
-    path('juego/estadistica', viewsstats.Resultado ,name='estadistica'),
-    path('juego/mis_estadisticas', viewsstats.mi_estadistica ,name='misestadisticas')
+    path('juego/resultado', viewsstats.Resultado ,name='resultado'),
+    path('juego/mis_estadisticas', viewsstats.mi_estadistica ,name='misestadisticas'),
+    path('juego/elegircategoria', views.elegircategoria, name='elegircategoria'),
 ]
     
