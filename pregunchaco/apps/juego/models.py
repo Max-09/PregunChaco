@@ -8,8 +8,9 @@ class Categoria(models.Model):
 	def __str__(self):
 		return self.nombre
 
-class Modalidad(Categoria):
-	pass
+class Modalidad(models.Model):
+	nombre = models.CharField(max_length = 50)
+
 
 class PyR(models.Model):
 	pregunta = models.CharField(max_length = 150)

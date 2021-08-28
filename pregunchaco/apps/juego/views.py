@@ -75,6 +75,7 @@ def juego(request):
 		partida=models.Partida()
 		request.session["lista"] = lista_preguntas
 		partida.id_usuario=request.user
+		partida.modalidad_id = 8
 		partida.save()
 		request.session["id_partida"]=partida.id #GUARDO ID DE LA PARTIDA
 		request.session["qcontestadas"] = 0
@@ -89,29 +90,30 @@ def juego(request):
 @login_required
 def elegircategoria(request):
 	if request.method=='POST':
-	
+		partida=models.Partida()
 		if "1" in request.POST:
 			conseguir_pregunta_categoria(1)
-		
+			partida.modalidad_id = 1
 		elif "2" in request.POST:
 			conseguir_pregunta_categoria(2)
-		
+			partida.modalidad_id = 2
 		elif "3" in request.POST:
 			conseguir_pregunta_categoria(3)
-		
+			partida.modalidad_id = 3
 		elif "4" in request.POST:
 			conseguir_pregunta_categoria(4)
-			
+			partida.modalidad_id = 4
 		elif "5" in request.POST:
 			conseguir_pregunta_categoria(5)
-		
+			partida.modalidad_id = 5
 		elif "6" in request.POST:
 			conseguir_pregunta_categoria(6)
-			
+			partida.modalidad_id = 6
 		elif "7" in request.POST:
 			conseguir_pregunta_categoria(7)
+			partida.modalidad_id = 7
 		
-		partida=models.Partida()
+		
 		request.session["lista"] = flat_ids
 		partida.id_usuario=request.user
 		partida.save()
