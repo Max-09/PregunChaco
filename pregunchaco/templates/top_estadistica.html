@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/Misestadisticas.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/TopEstadisticas.css' %}">
 </head>
 <body>
 	<div id="box">
@@ -12,15 +12,16 @@
         <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
        </div>
       <div id="score">
-          <h1>RANKING DE JUGADORES: </h1>
+          <h1>TOP JUGADORES</h1>
         </div>
         <div id="barra">
         </div>
-        
       <div id="tops">
-          <p>PRIMER LUGAR<scan> {{ranking.0}}</scan>{{ranking.1}}</p>
-          <p>SEGUNDO LUGAR<scan>{{ranking.2}}</scan>{{ranking.3}}</p>
-          <p>TERCER LUGAR<scan>{{ranking.4}}</scan>{{ranking.5}}</p>
+          <p><img src='https://i.postimg.cc/4yDRdxbM/Oro.png' border='0' alt='Oro'/>{{ranking.0}}<oro>{{ranking.1}}</oro></p>
+
+          <p><img src='https://i.postimg.cc/NMnWJjVM/Plata.png' border='0' alt='Plata'/>{{ranking.2}}<plata>{{ranking.3}}</plata></p>
+
+          <p><img src='https://i.postimg.cc/XY37csdP/Bronce.png' border='0' alt='Bronce'/>{{ranking.4}}<bronce>{{ranking.5}}</bronce></p>
         </div>
       <div id="barra">
         </div>

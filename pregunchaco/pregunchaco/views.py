@@ -28,20 +28,18 @@ def Index(request):
 def top_estadistica(request):
 	context={}
 	lista = Usuario.objects.all().order_by('-maximo').values_list('username', 'maximo')
-	if len(lista) < 6:
-		return render(request,'top_estadistica.html')
-	else:
-		list(lista[0:6])
-		flat_lista = []
-		for sublist in lista:
-			for item in sublist:
+	list(lista[0:6])
+	flat_lista = []
+	for sublist in lista:
+		for item in sublist:
 				flat_lista.append(item)
-		flat_lista[0] = flat_lista[0].upper()
-		flat_lista[2] = flat_lista[2].upper()
-		flat_lista[4] = flat_lista[4].upper()
-		context['ranking'] = flat_lista[0:6]
-		#Employer.objects.values('id').annotate(jobtitle_count=Count('jobtitle')).order_by('-jobtitle_count')[:5]
-		return render(request,'top_estadistica.html', context)
+	flat_lista[0] = flat_lista[0].upper()
+	flat_lista[2] = flat_lista[2].upper()
+	flat_lista[4] = flat_lista[4].upper()
+	context['ranking'] = flat_lista[0:6]
+	#Employer.objects.values('id').annotate(jobtitle_count=Count('jobtitle')).order_by('-jobtitle_count')[:5]
+	return render(request,'top_estadistica.html', context)
+		
 
 
 
