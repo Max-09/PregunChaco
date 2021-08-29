@@ -45,12 +45,25 @@
     <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
         <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
      </div>
+     <div class="time">
+     <span id="timer"></span>
+   </div>
   </div>
 </body>
 <script>
-  var varTimerInMiliseconds = 5000;
-setTimeout(function(){ 
-    document.getElementById("respuestas").submit();
-}, varTimerInMiliseconds);
+  var count=7;
+
+  var counter=setInterval(timer, 1000); 
+
+  function timer(){
+    count=count-1;
+    if (count <= 0)
+  {
+     clearInterval(counter);
+     document.getElementById("respuestas").submit();
+     return;
+  }
+document.getElementById("timer").innerHTML="" + count + ""; 
+}
 </script>
-</html>
+</html> 

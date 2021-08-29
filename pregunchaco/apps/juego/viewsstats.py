@@ -28,13 +28,22 @@ def Resultado(request):
 
     return render(request, 'juego/Statistic.html', context)
 
+
 @login_required
 def mi_estadistica(request):
-    context={}
-    usuario = request.user
-    dataset =pd.DataFrame.from_records(models.Partida.objects.filter(id_usuario=usuario).values())
+    categorias=["cultura_arte", "historia", "deporte", "geografia", "economia","ciencia","entretenimiento"]
+    nombrecat=["cultura_arte", "historia", "deporte", "geografia", "economia","ciencia","entretenimiento"]
+    numcat=[1,2,3,4,5,6,7]
+    numacierto=["acierto_1","acierto_2","acierto_3","acierto_4","acierto_5","acierto_6","acierto_7"]
     
-    cantidad = dataset["id"].count()
+    try:
+        context={}
+        usuario = request.user
+        dataset =pd.DataFrame.from_records(models.Partida.objects.filter(id_usuario=usuario).values())
+        cantidad = dataset["id"].count()
+    except:
+        return redirect('index')
+    
     promedio = dataset[["acierto_1", "acierto_2", "acierto_3", "acierto_4", "acierto_5", "acierto_6", "acierto_7"]].sum().sum()/(cantidad)
 
     context['qpartidasjugadas'] = cantidad
@@ -45,15 +54,20 @@ def mi_estadistica(request):
     indice = lista.index(request.user)+1
     context['indice'] = indice
 
-    cultura_arte={}
-    qpreguntascontestadas = int((dataset[dataset["modalidad_id"].astype(int)==1].count(axis=1).count())*7+(dataset[dataset["modalidad_id"].astype(int)==8].count(axis=1).count()))
-    #cambiar " .astype(int) == 1" por id de categoria en linea anterior
-    cultura_arte['qpreguntascontestadas'] = qpreguntascontestadas
-    aciertos = int(dataset[["acierto_1"]].sum().sum()) #cambiar "acierto_1" por acierto de categoria
-    cultura_arte['aciertos']= aciertos
-    promedio = int(aciertos/qpreguntascontestadas*100)
-    cultura_arte['promedio']= promedio
-    context['cultura_arte'] = cultura_arte
+    for i in range(7):
+        categorias[i]={}
+        qpreguntascontestadas = int((dataset[dataset["modalidad_id"].astype(int)==numcat[i]].count(axis=1).count())*7+(dataset[dataset["modalidad_id"].astype(int)==8].count(axis=1).count()))
+        #cambiar " .astype(int) == 1" por id de categoria en linea anterior
+        categorias[i]['qpreguntascontestadas'] = qpreguntascontestadas
+        aciertos = int(dataset[[numacierto[i]]].sum().sum()) #cambiar "acierto_1" por acierto de categoria
+        categorias[i]['aciertos']= aciertos
+        try:
+            promedio = int(aciertos/qpreguntascontestadas*100)
+        except:
+            promedio = 0
+        categorias[i]['promedio']= promedio
+        context['categoria'] = categorias[i]
+        print(context)
 
     return render(request,'juego/misestadisticas.html', context)
 
