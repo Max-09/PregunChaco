@@ -1,4 +1,4 @@
-import math
+import pandas as pd
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
@@ -10,6 +10,7 @@ from . import models
 @login_required
 def Resultado(request):
     context={}
+    context['contestadas'] = request.session.get('contestadas')
     id_partida = request.session.get('id_partida') # consigo el id de la partida en juego
     partida = models.Partida.objects.get(id=id_partida) 
     aciertos = (partida.acierto_1 + partida.acierto_2 + partida.acierto_3 + partida.acierto_4 + partida.acierto_5 + partida.acierto_6 + partida.acierto_7)
@@ -31,16 +32,28 @@ def Resultado(request):
 def mi_estadistica(request):
     context={}
     usuario = request.user
-    context['qpartidasjugadas'] = models.Partida.objects.filter(id_usuario=usuario).count()
-    context['puntajemaximo'] = usuario.maximo
-    promedio = models.Partida.objects.filter(id_usuario=usuario).values('aciertos').aggregate(Avg('aciertos'))
-
-    context['puntajepromedio'] = int(promedio['aciertos__avg']*14.29)
-
-    lista = list(Usuario.objects.all().order_by('-maximo'))
+    dataset =pd.DataFrame.from_records(models.Partida.objects.filter(id_usuario=usuario).values())
     
+    cantidad = dataset["id"].count()
+    promedio = dataset[["acierto_1", "acierto_2", "acierto_3", "acierto_4", "acierto_5", "acierto_6", "acierto_7"]].sum().sum()/(cantidad)
+
+    context['qpartidasjugadas'] = cantidad
+    context['puntajemaximo'] = usuario.maximo
+    context['puntajepromedio'] = int(promedio*14.29)
+    
+    lista = list(Usuario.objects.all().order_by('-maximo'))
     indice = lista.index(request.user)+1
     context['indice'] = indice
+
+    cultura_arte={}
+    qpreguntascontestadas = int((dataset[dataset["modalidad_id"].astype(int)==1].count(axis=1).count())*7+(dataset[dataset["modalidad_id"].astype(int)==8].count(axis=1).count()))
+    #cambiar " .astype(int) == 1" por id de categoria en linea anterior
+    cultura_arte['qpreguntascontestadas'] = qpreguntascontestadas
+    aciertos = int(dataset[["acierto_1"]].sum().sum()) #cambiar "acierto_1" por acierto de categoria
+    cultura_arte['aciertos']= aciertos
+    promedio = int(aciertos/qpreguntascontestadas*100)
+    cultura_arte['promedio']= promedio
+    context['cultura_arte'] = cultura_arte
 
     return render(request,'juego/misestadisticas.html', context)
 

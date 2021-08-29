@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
 from django.shortcuts import render, redirect
-from django.contrib import messages
+
 
 from . import models
 
@@ -66,6 +66,8 @@ def actualizar_puntaje(request):
 def juego(request):
 		
 	if request.method=='POST' and "empezar" in request.POST:
+		contestadas = []
+		request.session["contestadas"] = contestadas
 		lista_preguntas= []
 		for i in range(1, 8):
 			conseguir_pregunta_mixtas(i)
@@ -79,6 +81,8 @@ def juego(request):
 		request.session["qcontestadas"] = 0
 		return redirect('juego:1')
 	elif request.method=='POST' and "categoria" in request.POST:
+		contestadas = []
+		request.session["contestadas"] = contestadas
 		return redirect('juego:elegircategoria')
 	else:
 		pass
@@ -128,7 +132,7 @@ def traer_pregunta(request):
 	global context, lista_preguntas, fila_pregunta
 	context = {} 
 	lista_preguntas = request.session.get("lista")
-
+	context["contestadas"] = request.session.get("contestadas")
 	try:
 		fila_pregunta = models.PyR.objects.get(id=lista_preguntas[0])
 		opciones = [fila_pregunta.op1, fila_pregunta.op2, fila_pregunta.op3, fila_pregunta.op4]
@@ -148,8 +152,9 @@ def resultado_correcto(request):
 	actualizar_puntaje(request)
 
 	if request.session.get("qcontestadas") < 7:
-		messages.success(request, message = ' LA RESPUESTA ANTERIOR FUE CORRECTA')
-
+		contestadas = context.get('contestadas')
+		contestadas.append(True)
+		request.session["contestadas"] = contestadas
 		request.session["qcontestadas"] += 1
 		lista_preguntas.pop(0)
 		request.session["lista"] = lista_preguntas
@@ -160,8 +165,9 @@ def resultado_correcto(request):
 
 def resultado_incorrecto(request):
 	if request.session["qcontestadas"] < 7:
-		messages.error(request, message = 'LA RESPUESTA ANTERIOR FUE CORRECTA')
-	
+		contestadas = context.get('contestadas')
+		contestadas.append(False)
+		request.session["contestadas"] = contestadas
 		request.session["qcontestadas"] += 1
 		lista_preguntas.pop(0)
 		request.session["lista"] = lista_preguntas

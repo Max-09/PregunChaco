@@ -20,9 +20,17 @@
       <div id="estadisticas">
           <p>RESPUESTAS CORRECTAS: <scan>{{aciertos}}</scan></p>
           <p>RESPUESTAS INCORRECTAS: <scan>{{errores}}</scan></p>
+          {% for i in contestadas %}
+          {% if i == True %}
+          {{i}}
+          {% else %}
+          {{i}}
+          {% endif %}
+          {% endfor %}
         </div>
       <div id="btn">
           <a href="{% url 'juego:juego' %}">VOLVER A JUGAR</a>
+          <!-- <a href="{% url 'index' %}">VOLVER AL INICIO</a> -->
         </div>
       <h1 id="compartir">COMPARTIR PUNTAJE:</h1>
     </div>

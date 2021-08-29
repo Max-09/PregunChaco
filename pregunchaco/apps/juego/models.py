@@ -38,3 +38,6 @@ class Partida(models.Model):
 	acierto_5 = models.IntegerField(default = 0)
 	acierto_6 = models.IntegerField(default = 0)
 	acierto_7 = models.IntegerField(default = 0)
+
+
+	
