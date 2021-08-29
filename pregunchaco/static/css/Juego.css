@@ -153,5 +153,20 @@ body{
   align-items:center;
   justify-content:center;
 }
-
+.resultados{
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.tick img{
+  width: 50px;
+}
+.x img{
+  width: 50px;
+}
 

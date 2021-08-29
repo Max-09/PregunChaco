@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Misestadisticas.css' %}">
 </head>
 <body>
-	<div id="box">
+  <div id="box">
      <div id="logo">
         <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
        </div>
@@ -22,23 +22,96 @@
           <p>PUNTAJE MAXIMO<scan>{{puntajemaximo}}</scan></p>
           <p>PROMEDIO<scan>{{puntajepromedio}}</scan></p>
           <p>RANKING<scan>{{indice}}</scan></p>
-          
-            {{categoria}}
-            
-          
-
         </div>
       <div id="barra">
         </div>
       <div id="btn">
-        <input type=button value="ATRAS" ad onClick="javascript:history.go(-1);">
+        <a href="#" onclick="detalle()">DETALLES</a>
         </div>
-    </div>
-</div>
-   <div id="logout">
-        <a href="{% url 'usuarios:login' %}" align="center"><img src='https://i.postimg.cc/brTvr38K/Salir.png' border='0' alt='Logout'/></a>
+  <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
+        <a href="{% url 'usuarios:logout'%}" target='_blank' align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
      </div>
-
-
+  <div id="atras" data-tooltip="ATRAS">
+      <a href="{% url 'index'%}"><img src='https://i.postimg.cc/J7vrrq0F/Atras.png' border='0' alt='Atras'/></a>
+  </div>
+   <div id="box2">
+     <div id="logo2">
+        <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
+       </div>
+     <div id="container">
+     <div id="categoria1">
+       <h1>CULTURA Y ARTE</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{0.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{0.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{0.promedio}}</scan></p>
+       </div>
+       <div id="categoria1">
+       <h1>HISTORIA</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{1.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{1.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{1.promedio}}</scan></p>
+       </div>
+       <div id="categoria1">
+       <h1>DEPORTE</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{2.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{2.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{2.promedio}}</scan></p>
+       </div>
+       <div id="categoria1">
+       <h1>GEOGRAFIA</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{3.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{3.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{3.promedio}}</scan></p>
+       </div>
+       <div id="categoria1">
+       <h1>ECONOMIA</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{4.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{4.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{4.promedio}}</scan></p>
+       </div>
+       <div id="categoria1">
+       <h1>CIENCIA Y EDUCACION</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{5.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{5.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{5.promedio}}</scan></p>
+       </div>
+       <div id="categoria1">
+       <h1>ENTRETENIMIENTO</h1>
+       <div id="barracat">
+        </div>
+          <p>ACIERTOS: <scan>{{6.aciertos}}</scan></p>
+          <p>RESPONDIDAS: <scan>{{6.qpreguntascontestadas}}</scan></p>
+          <p>PROMEDIO: <scan>{{6.promedio}}</scan></p>
+       </div>
+     </div>
+     <div id="atras" data-tooltip="ATRAS" onclick="detalle2()">
+      <a href="#"><img src='https://i.postimg.cc/J7vrrq0F/Atras.png' border='0' alt='Atras'/></a>
+  </div>
+     </div>
+</div>
+<script>
+  var x=document.getElementById("box")
+  var y=document.getElementById("box2")
+  function detalle(){
+    x.style.right="0px";
+    y.style.top="0px";
+  }
+  function detalle2(){
+   y.style.top="-1700px";
+  }
+  
+</script>
 </body>
 </html>

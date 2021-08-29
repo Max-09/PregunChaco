@@ -20,23 +20,33 @@
       <div id="estadisticas">
           <p>RESPUESTAS CORRECTAS: <scan>{{aciertos}}</scan></p>
           <p>RESPUESTAS INCORRECTAS: <scan>{{errores}}</scan></p>
-          {% for i in contestadas %}
-          {% if i == True %}
-          {{i}}
-          {% else %}
-          {{i}}
-          {% endif %}
-          {% endfor %}
+          <div class="resultados">
+            {% for i in contestadas %}
+            {% if i == True %}
+            <div class="tick">
+              <img src='https://i.postimg.cc/1zP64H8s/Tick.png' border='0' alt='Tick'/>
+            </div>
+            {% else %}
+            <div class="x">
+              <img src='https://i.postimg.cc/fbLdxbfr/X.png' border='0' alt='X'/>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
         </div>
       <div id="btn">
           <a href="{% url 'juego:juego' %}">VOLVER A JUGAR</a>
           <!-- <a href="{% url 'index' %}">VOLVER AL INICIO</a> -->
         </div>
       <h1 id="compartir">COMPARTIR PUNTAJE:</h1>
+    <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
     </div>
-   <div id="logout">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/brTvr38K/Salir.png' border='0' alt='Logout'/></a>
-     </div>
+    <div id="atras" data-tooltip="HOME">
+      <a href="{% url 'index'%}"><img src='https://i.postimg.cc/50xYg2Jz/Home.png' border='0' alt='Atras'/></a>
+    </div>
+    </div>
+   
     <div class="socials">
        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FPregunchaco.com" target="_blank" rel="noopener">FACEBOOK</a>
        <a href="#">INSTAGRAM</a>

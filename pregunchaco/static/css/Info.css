@@ -254,3 +254,11 @@ a{
   visibility: visible;
   opacity: 1;
 }
+#texto{
+  position: absolute;
+  bottom: 70px;
+  color: white; 
+}
+#texto h2{
+  font-size: 19px;
+}

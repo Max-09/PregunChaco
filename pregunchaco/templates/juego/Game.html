@@ -18,29 +18,26 @@
         <h3>{{preguntas.cat}}</h3>
         <h5>{{preguntas.pregunta}}</h5>
         </div>
-        <!-- {% if messages %}
-
-        {% for message in messages %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {{ message }}
-
-        </div>
-        {% endfor %}
-        {% endif %} -->
+      
     </div>
       <form id="respuestas" method="POST">{% csrf_token %}
       <input type="submit" class="btn" name="{{opcion1}}" value="{{opcion1}}">
       <input type="submit" class="btn" name="{{opcion2}}" value="{{opcion2}}">
       <input type="submit" class="btn" name="{{opcion3}}" value="{{opcion3}}">
       <input type="submit" class="btn" name="{{opcion4}}" value="{{opcion4}}">
-      {{contestadas.0}}
-      {{contestadas.1}}
-      {{contestadas.2}}
-      {{contestadas.3}}
-      {{contestadas.4}}
-      {{contestadas.5}}
-      {{contestadas.6}}
-      {{contestadas.7}}
+      <div class="resultados">
+        {% for i in contestadas %}
+            {% if i == True %}
+            <div class="tick">
+              <img src='https://i.postimg.cc/1zP64H8s/Tick.png' border='0' alt='Tick'/>
+            </div>
+            {% else %}
+            <div class="x">
+              <img src='https://i.postimg.cc/fbLdxbfr/X.png' border='0' alt='X'/>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
     
     <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
         <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
@@ -51,7 +48,7 @@
   </div>
 </body>
 <script>
-  var count=7;
+  var count=20;
 
   var counter=setInterval(timer, 1000); 
 

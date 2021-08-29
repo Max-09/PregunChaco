@@ -21,7 +21,7 @@ body{
   margin: 9% auto;
   padding: 5% 0 0;
   width: 530px;
-  height: 440px;
+  height: 490px;
   background: rgb(193,106,213);
   background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
   border-radius: 20px;
@@ -36,16 +36,37 @@ body{
   width: 390px;
   margin-top: -210px;
 }
+#logout{
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  top: 0px;
+  right: -18px;
+}
+
 #logout img{
   animation: none;
-  width: 120px;
-  position: absolute;
+  width: 70px;
   top: 14px;
-  right: 14px;
+  right: 0px;
   transition: 0.5s;
 }
 #logout img:hover{
-  width: 123px;
+  width: 74px;
+}
+#atras{
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  top: 0px;
+  left: -98px;
+}
+#atras img{
+  width: 86px;
+  transition: 0.5s;
+}
+#atras img:hover{
+  width: 88px;
 }
 #score{
   margin-top:-30px;
@@ -84,6 +105,7 @@ body{
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
 }
 #btn a{
   text-decoration: none;
@@ -134,9 +156,91 @@ body{
 #compartir{
   font-size: 15px;
   color: white;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+[data-tooltip] {
+  width: 30%;
+  cursor: pointer;
+}
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+[data-tooltip]:before {
+  position: absolute;
+  top: 75px;
+  padding: 14px;
+  
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 10px;
+  background: rgb(247,109,29);
+  background: linear-gradient(0deg, rgba(247,109,29,1) 0%, rgba(250,216,96,1) 100%);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+[data-tooltip][data-tooltip-small] {
+  width: 30%;
+  cursor: pointer;
+}
+[data-tooltip][data-tooltip-small]:before,
+[data-tooltip][data-tooltip-small]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+[data-tooltip][data-tooltip-small]:before {
+  position: absolute;
+  top: 75px;
+  padding: 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 10px;
+  background: rgb(161,6,28);
+  background: linear-gradient(0deg, rgba(161,6,28,1) 0%, rgba(244,80,94,1) 100%);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+[data-tooltip][data-tooltip-small]:hover:before,
+[data-tooltip][data-tooltip-small]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+.resultados{
+  background: rgb(193,106,213, .2);
+  position: absolute;
+  bottom: 160px;
+  width: 53%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: 10px;
+  border: none;
+}
+.tick img{
+  width: 40px;
+}
+.x img{
+  width: 40px;
 }
 

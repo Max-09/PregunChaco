@@ -32,7 +32,6 @@ def Resultado(request):
 @login_required
 def mi_estadistica(request):
     categorias=["cultura_arte", "historia", "deporte", "geografia", "economia","ciencia","entretenimiento"]
-    nombrecat=["cultura_arte", "historia", "deporte", "geografia", "economia","ciencia","entretenimiento"]
     numcat=[1,2,3,4,5,6,7]
     numacierto=["acierto_1","acierto_2","acierto_3","acierto_4","acierto_5","acierto_6","acierto_7"]
     
@@ -66,8 +65,8 @@ def mi_estadistica(request):
         except:
             promedio = 0
         categorias[i]['promedio']= promedio
-        context['categoria'] = categorias[i]
-        print(context)
+        context[i] = categorias[i] #PROBLEMA ACA!!!!!!!
+        
 
     return render(request,'juego/misestadisticas.html', context)
 
