@@ -13,19 +13,24 @@
         <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
        </div>
       <div id="informacion">
-          <h1>REGLAS</h1><br>
-          <p>DEBERAS RESPONDER <scan>7</scan> PREGUNTAS ALEATORIAS, LAS CUALES CORRESPONDE A LAS CATEGORIAS: <scan>CULTURA Y ARTE, HISTORIA, DEPORTE, GEOGRAFÍA, ECONOMÍA, CIENCIAS Y EDUCACIÓN, Y ENTRETENIMIENTO</scan></p>
-        </div>
-      <div id="barra">
-        </div>
+          <h1>MODOS DE JUEGO</h1><br>
+          </div>
         <form method="POST">{% csrf_token %}
-    	     <input type="submit" class="btn" name="empezar" value="Crisol de Categorias">
-           <input type="submit" class="btn" name="categoria" value="Elegir Categoria">
+            <div class="crisol" data-tooltip="DEBERAS CONTESTAR 7 PREGUNTAS, 1 POR CATEGORIA: CULTURA Y ARTE, HISTORIA, DEPORTE, GEOGRAFÍA, ECONOMÍA, CIENCIAS Y EDUCACIÓN, Y ENTRETENIMIENTO" data-tooltip-big="true">
+    	     <input type="submit" id="btn" name="empezar" value="Crisol de Categorias">
+            </div>
+            <div class="categoria" data-tooltip="DEBERAS CONTESTAR 7 PREGUNTAS DE LA CATEGORIA QUE ELIJAS">
+                <input type="submit" id="btn" name="categoria" value="Elegir Categoria">
+                </div>
         </form>
+    
+   <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
     </div>
-   <div id="logout">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/brTvr38K/Salir.png' border='0' alt='Logout'/></a>
-     </div>
+    <div id="atras" data-tooltip="ATRAS">
+      <a href="#" ad onClick="javascript:history.go(-1);"><img src='https://i.postimg.cc/J7vrrq0F/Atras.png' border='0' alt='Atras'/></a>
+    </div>
+ </div>
 
 </body>
 </html>

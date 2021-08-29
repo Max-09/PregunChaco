@@ -2,16 +2,33 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/Info.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/Categorias.css' %}">
 </head>
 <html>
-    <form method="POST">{% csrf_token %}
-    <input type="submit" class="btn" name="1" value="CULTURA Y ARTE">
-    <input type="submit" class="btn" name="2" value="HISTORIA">
-    <input type="submit" class="btn" name="3" value="DEPORTE">
-    <input type="submit" class="btn" name="4" value="GEOGRAFÍA">
-    <input type="submit" class="btn" name="5" value="ECONOMIA">
-    <input type="submit" class="btn" name="6" value="CIENCIA Y EDUCACIÓN">
-    <input type="submit" class="btn" name="7" value="ENTRETENIMIENTO">
-    </form>
+<body>
+    <div id="box">
+     <div id="logo">
+        <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
+       </div>
+     <div id="texto">
+        <h1>CATEGORIAS</h1>
+       </div>
+      <form method="POST" class="botones">{% csrf_token %}
+        <input type="submit" class="btn" name="1" value="CULTURA Y ARTE">
+        <input type="submit" class="btn" name="2" value="HISTORIA">
+        <input type="submit" class="btn" name="3" value="DEPORTE">
+        <input type="submit" class="btn" name="4" value="GEOGRAFÍA">
+        <input type="submit" class="btn" name="5" value="ECONOMIA">
+        <input type="submit" class="btn" name="6" value="CIENCIA Y EDUCACIÓN">
+        <input type="submit" class="btn" name="7" value="ENTRETENIMIENTO">
+        </form>
+  <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
+        <a href="{% url 'usuarios:logout'%}" target='_blank' align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
+     </div>
+  <div id="atras" data-tooltip="ATRAS">
+      <a href="#"><img src='https://i.postimg.cc/J7vrrq0F/Atras.png' border='0' alt='Atras'/></a>
+  </div>
+</div>
+
+</body>
 </html>

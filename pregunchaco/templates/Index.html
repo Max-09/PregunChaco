@@ -20,11 +20,11 @@
         <a href="{% url 'juego:juego' %}">JUGAR</a>
         <a href="{% url 'juego:misestadisticas' %}">MIS ESTADISTICAS</a>
         </div>
-
-    </div>
-   <div id="logout">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/brTvr38K/Salir.png' border='0' alt='Logout'/></a>
+        <div id="logout" data-tooltip="CERRAR SESIÓN">
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
      </div>
+    </div>
+   
    <div class="socials">
        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FPregunchaco.com" target="_blank" rel="noopener">FACEBOOK</a>
        <a href="#">INSTAGRAM</a>
