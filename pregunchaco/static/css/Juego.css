@@ -3,21 +3,17 @@
   margin: 0;
   padding: 0;
   cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  
 }
+
 body{
-  height:100%;
+  height: 300%;
   background: rgb(72,157,228);
   background: linear-gradient(0deg, rgba(72,157,228,1) 0%, rgba(13,222,235,1) 100%);
   background-position: center;
   font-family: "Poppins", Arial;
 }
-.main{
-  height: 100%;
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items:center;
-}
+
 #box{
   margin: 7% auto;
   padding: 5% 0 0;
@@ -46,6 +42,7 @@ body{
 }
 
 #logout img{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   animation: none;
   width: 70px;
   top: 14px;
@@ -100,7 +97,7 @@ body{
  border-radius: 10px;
  border: none;
  outline: 0;
- cursor: pointer;
+ cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
  font-size: 17px;
  font-weight: bold;
  background: rgb(255,114,119);
@@ -177,6 +174,7 @@ body{
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  
 }
 .tick img{
   width: 50px;
@@ -184,4 +182,7 @@ body{
 .x img{
   width: 50px;
 }
-
+#ajustar{
+  opacity: 0;
+  height: 90px;
+}

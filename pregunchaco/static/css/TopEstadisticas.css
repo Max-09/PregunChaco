@@ -2,6 +2,7 @@
 *{
   margin: 0;
   padding: 0;
+  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
 }
 body{
   height:100vh;
@@ -112,8 +113,10 @@ bronce{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 #btn input{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   text-decoration: none;
   padding: 20px;
   width: 50%;

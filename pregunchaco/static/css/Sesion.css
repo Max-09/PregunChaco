@@ -2,6 +2,7 @@
 *{
   margin: 0;
   padding: 0;
+  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
 }
 body{
   height:75vh;
@@ -48,7 +49,6 @@ body{
   margin-left: 70px;
   margin-top: 15px;
   padding: 20px 30px;
-  cursor: pointer;
   display: block;
   background: rgb(255,114,119);
   background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
@@ -56,6 +56,7 @@ body{
   border: none;
   outline: none;
   color: white;
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
 }
 .btn:hover{
   background: rgb(247,115,33);
@@ -68,6 +69,7 @@ p{
   margin: auto;
 }
 p a{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   color: #FFD12B;
   text-decoration: none;
   font-size: 16px;

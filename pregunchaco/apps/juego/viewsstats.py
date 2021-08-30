@@ -41,7 +41,7 @@ def mi_estadistica(request):
         dataset =pd.DataFrame.from_records(models.Partida.objects.filter(id_usuario=usuario).values())
         cantidad = dataset["id"].count()
     except:
-        return redirect('index')
+        return render(request, 'juego/noestadistica.html')
     
     promedio = dataset[["acierto_1", "acierto_2", "acierto_3", "acierto_4", "acierto_5", "acierto_6", "acierto_7"]].sum().sum()/(cantidad)
 

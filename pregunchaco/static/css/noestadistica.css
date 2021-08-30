@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+}
+body{
+  height:100vh;
+  background: rgb(72,157,228);
+  background: linear-gradient(0deg, rgba(72,157,228,1) 0%, rgba(13,222,235,1) 100%);
+  background-position: center;
+  font-family: "Poppins", Arial;
+}
+
+#box{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  margin: 9% auto;
+  padding: 5% 0 0;
+  width: 800px;
+  height:250px;
+  background: rgb(193,106,213);
+  background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+#logo{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -120px;
+}
+#logo img{
+  width: 390px;
+}
+
+
+#informacion{
+  height: 90%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+h1{
+  color: white;
+}
+[data-tooltip] {
+  width: 30%;
+  cursor: pointer;
+}
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+[data-tooltip]:before {
+  position: absolute;
+  top: 75px;
+  padding: 14px;
+  
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 10px;
+  background: rgb(255,114,119);
+  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.2;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+#atras{
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  top: 0px;
+  left: -98px;
+}
+#atras img{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  width: 86px;
+  transition: 0.5s;
+}
+#atras img:hover{
+  width: 88px;
+}

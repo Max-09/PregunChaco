@@ -2,6 +2,7 @@
 *{
   margin: 0;
   padding: 0;
+  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
 }
 body{
   height:100vh;
@@ -42,9 +43,11 @@ body{
   position: absolute;
   top: 0px;
   right: -18px;
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
 }
 
 #logout img{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   animation: none;
   width: 70px;
   top: 14px;
@@ -60,8 +63,10 @@ body{
   position: absolute;
   top: 0px;
   left: -98px;
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
 }
 #atras img{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   width: 86px;
   transition: 0.5s;
 }
@@ -108,6 +113,7 @@ body{
   margin-top: 50px;
 }
 #btn a{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   text-decoration: none;
   text-align: center;
   padding: 10px;
@@ -144,6 +150,7 @@ body{
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .socials a{
+  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
   padding: 50px;
   text-decoration: none;
   color: white;
