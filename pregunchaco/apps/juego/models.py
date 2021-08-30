@@ -9,7 +9,7 @@ class Categoria(models.Model):
 		return self.nombre
 
 class Modalidad(models.Model):
-	nombre = models.CharField(max_length = 50)
+	nombrer = models.CharField(max_length = 50)
 
 
 class PyR(models.Model):
