@@ -1,6 +1,6 @@
 import random
 
-from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
 from django.shortcuts import render, redirect
@@ -150,7 +150,7 @@ def traer_pregunta(request):
 
 def resultado_correcto(request):
 	actualizar_puntaje(request)
-
+	print(request.session.get("qcontestadas"))
 	if request.session.get("qcontestadas") < 7:
 		contestadas = context.get('contestadas')
 		contestadas.append(True)
@@ -161,9 +161,11 @@ def resultado_correcto(request):
 
 
 	else:
-		return redirect('juego:resultado')
+		print("holaaaaaaaaaaa")
+		return reverse_lazy('juego:resultado')
 
 def resultado_incorrecto(request):
+	print(request.session.get("qcontestadas"))
 	if request.session["qcontestadas"] < 7:
 		contestadas = context.get('contestadas')
 		contestadas.append(False)
@@ -173,11 +175,13 @@ def resultado_incorrecto(request):
 		request.session["lista"] = lista_preguntas
 
 	else:
-		return redirect('juego:resultado')
+		print("chauuuuuuuu")
+		return reverse_lazy('juego:resultado')
 
 @login_required
 def pregunta1(request):
-
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 	traer_pregunta(request)
 
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
@@ -191,6 +195,8 @@ def pregunta1(request):
 
 @login_required
 def pregunta2(request):
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 
 	traer_pregunta(request)
 
@@ -206,6 +212,8 @@ def pregunta2(request):
 
 @login_required
 def pregunta3(request):
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 
 	traer_pregunta(request)
 
@@ -221,6 +229,8 @@ def pregunta3(request):
 
 @login_required
 def pregunta4(request):
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 
 	traer_pregunta(request)
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
@@ -235,6 +245,8 @@ def pregunta4(request):
 
 @login_required
 def pregunta5(request):
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 
 	traer_pregunta(request)
 	
@@ -250,6 +262,8 @@ def pregunta5(request):
 
 @login_required
 def pregunta6(request):
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 	traer_pregunta(request)
 	
 	if request.method=='POST' and fila_pregunta.respuesta in request.POST: #SI RESPONDIO BIEN, ENTRA
@@ -264,6 +278,8 @@ def pregunta6(request):
 
 @login_required
 def pregunta7(request):
+	if request.session.get("qcontestadas") == 7:
+		return redirect('juego:resultado')
 
 	traer_pregunta(request)
 	

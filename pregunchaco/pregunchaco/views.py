@@ -28,6 +28,12 @@ def Index(request):
 def top_estadistica(request):
 	context={}
 	lista = Usuario.objects.all().order_by('-maximo').values_list('username', 'maximo')
+	if len(lista) == 2:
+		list(lista[0:2])
+
+
+
+
 	list(lista[0:6])
 	flat_lista = []
 	for sublist in lista:

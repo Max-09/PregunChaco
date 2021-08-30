@@ -16,7 +16,18 @@
   
       <input type="text" name="username" placeholder="USUARIO" class="input-field" required>
       <input type="password" name="password" placeholder="CONTRASEÑA" class="input-field">
-      {{ form.non_field_errors }}
+      
+      <div id="texto">
+      {% if form.errors %}
+        
+
+      <div id='error'>
+        {% for i in form.errors.values %}
+          {{i}}
+          {% endfor %}
+      </div>
+      {% endif %}
+    </div>
       <button type="submit" class="btn">INICIAR SESION</button>
      <div id="pes">
       <p>OlVIDASTE TU CONTRASEÑA? <a href="#register" onclick="register()"> RECUPERAR</a></p>
