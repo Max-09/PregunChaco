@@ -6,7 +6,7 @@
   cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
 }
 body{
-    height:110vh;
+    height:100vh;
     background: rgb(72,157,228);
     background: linear-gradient(0deg, rgba(72,157,228,1) 0%, rgba(13,222,235,1) 100%);
     display: flex;
