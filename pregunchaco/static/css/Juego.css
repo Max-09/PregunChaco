@@ -110,6 +110,7 @@ body{
   background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
   color: white;
   transform: translateY(-3px);
+  width: 90%;
 }
 
 
