@@ -10,7 +10,7 @@
 <div class="main">
   <div id="box">
      <div id="logo">
-        <a target='_blank'><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
+        <a target='_blank'><img src="{% static 'img/logo2.png' %}" border='0' alt='logo2'/></a>
        </div>
       <div id="usuario">
           <h1>¡BIENVENIDO!</h1>
@@ -21,7 +21,7 @@
         <a href="{% url 'juego:misestadisticas' %}">MIS ESTADISTICAS</a>
         </div>
         <div id="logout" data-tooltip="CERRAR SESIÓN">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src="{% static 'img/Logout.png' %}" border='0' alt='Logout'/></a>
      </div>
     </div>
    

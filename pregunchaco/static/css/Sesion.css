@@ -2,7 +2,7 @@
 *{
   margin: 0;
   padding: 0;
-  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  cursor: url('/static/img/cursor.png'),auto;
 }
 body{
   height:75vh;
@@ -56,7 +56,7 @@ body{
   border: none;
   outline: none;
   color: white;
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
 }
 .btn:hover{
   background: rgb(247,115,33);
@@ -69,7 +69,7 @@ p{
   margin: auto;
 }
 p a{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   color: #FFD12B;
   text-decoration: none;
   font-size: 16px;

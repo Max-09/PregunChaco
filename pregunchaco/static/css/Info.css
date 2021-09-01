@@ -2,7 +2,7 @@
 *{
   margin: 0;
   padding: 0;
-  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  cursor: url('/static/img/cursor.png'),auto;
 }
 body{
   height:100vh;
@@ -43,7 +43,7 @@ body{
 }
 
 #logout img{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   animation: none;
   width: 70px;
   top: 14px;
@@ -61,7 +61,7 @@ body{
   left: -98px;
 }
 #atras img{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   width: 86px;
   transition: 0.5s;
 }
@@ -175,7 +175,7 @@ form{
   color: white;
   font-size: 22px;
   position: relative;
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
 }
 a{
   text-decoration: none;
@@ -266,5 +266,5 @@ a{
   font-size: 19px;
 }
 input{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
 }

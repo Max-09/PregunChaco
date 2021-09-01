@@ -2,7 +2,7 @@
 *{
   margin: 0;
   padding: 0;
-  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  cursor: url('/static/img/cursor.png'),auto;
 }
 body{
   height:100vh;
@@ -89,7 +89,7 @@ h1{
   left: -98px;
 }
 #atras img{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   width: 86px;
   transition: 0.5s;
 }

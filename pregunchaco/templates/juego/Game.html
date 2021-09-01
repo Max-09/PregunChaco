@@ -11,7 +11,7 @@
 	<div class="main">
   <div id="box">
      <div id="logo">
-        <a target='_blank' align="center"><img src='https://i.postimg.cc/t4b0jRGc/logo2.png' border='0' alt='logo2'/></a>
+        <a target='_blank' align="center"><img src="{% static 'img/logo2.png' %}" border='0' alt='logo2'/></a>
        </div>
       <div id="box-preg">
       <div id="preg">
@@ -31,18 +31,18 @@
         {% for i in contestadas %}
             {% if i == True %}
             <div class="tick">
-              <img src='https://i.postimg.cc/1zP64H8s/Tick.png' border='0' alt='Tick'/>
+              <img src="{% static 'img/Tick.png' %}" border='0' alt='Tick'/>
             </div>
             {% else %}
             <div class="x">
-              <img src='https://i.postimg.cc/fbLdxbfr/X.png' border='0' alt='X'/>
+              <img src="{% static 'img/X.png' %}" border='0' alt='X'/>
             </div>
             {% endif %}
             {% endfor %}
         </div>
     
     <div id="logout" data-tooltip="CERRAR SESIÓN" data-tooltip-small="true">
-        <a href="{% url 'usuarios:logout'%}" align="center"><img src='https://i.postimg.cc/CzzWp3JY/Logout.png' border='0' alt='Logout'/></a>
+        <a href="{% url 'usuarios:logout'%}" align="center"><img src="{% static 'img/Logout.png' %}" border='0' alt='Logout'/></a>
      </div>
      <div class="time">
      <span id="timer"></span>

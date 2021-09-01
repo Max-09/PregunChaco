@@ -2,7 +2,7 @@
 *{
   margin: 0;
   padding: 0;
-  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  cursor: url('/static/img/cursor.png'),auto;
   
 }
 
@@ -42,7 +42,7 @@ body{
 }
 
 #logout img{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   animation: none;
   width: 70px;
   top: 14px;
@@ -97,7 +97,7 @@ body{
  border-radius: 10px;
  border: none;
  outline: 0;
- cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+ cursor: url('/static/img/puntero.png'),auto;
  font-size: 17px;
  font-weight: bold;
  background: rgb(255,114,119);

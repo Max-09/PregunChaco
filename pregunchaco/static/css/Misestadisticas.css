@@ -2,7 +2,7 @@
 *{
   margin: 0;
   padding: 0;
-  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  cursor: url('/static/img/cursor.png'),auto;
 }
 body{
   height:100vh;
@@ -44,7 +44,7 @@ body{
 }
 
 #logout img{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   animation: none;
   width: 70px;
   top: 14px;
@@ -62,7 +62,7 @@ body{
   left: -98px;
 }
 #atras img{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   width: 86px;
   transition: 0.5s;
 }
@@ -133,7 +133,7 @@ scan{
   align-items: center;
 }
 #btn a{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   text-decoration: none;
   padding: 20px;
   width: 50%;

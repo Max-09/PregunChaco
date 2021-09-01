@@ -3,7 +3,7 @@
 *{
   margin: 0;
   padding: 0;
-  cursor: url("https://i.postimg.cc/L6fCbxtB/cursor.png"),auto;
+  cursor: url('/static/img/cursor.png'),auto;
 }
 body{
     height:100vh;
@@ -54,20 +54,20 @@ fieldset{
 }
 
 #informatorio{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   width:300px;
 }
 
 #cod3r{
   width: 200px;
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
 }
 
 #bot{
   text-align: center;
 }
 #bot a{
-  cursor: url('https://i.postimg.cc/9M5hwLjx/Mano.png'),pointer;
+  cursor: url('/static/img/puntero.png'),auto;
   text-decoration: none;
   width: 100%;
   padding: 20px;
