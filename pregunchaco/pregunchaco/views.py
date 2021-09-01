@@ -35,7 +35,7 @@ def top_estadistica(request):
 			for sublist in lista:
 				for item in sublist:
 					flat_lista.append(item)
-			for j in range(len(flat_lista), 2):
+			for j in range(0,len(flat_lista), 2):
 				print(j)
 				flat_lista[j] = flat_lista[j].upper()
 			break

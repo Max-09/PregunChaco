@@ -57,4 +57,4 @@ def activate(request, uidb64, token):
         return redirect('index')
 
     else:
-        return HttpResponse('Activation link is invalid!')
+        return HttpResponse('Link de activación inválido')
