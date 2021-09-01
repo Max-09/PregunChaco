@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/Registro.css' %}"></link>
+</head>
+
+<body>
+
+    
+	<div id="box">
+  <div id="logo">
+      <img src="{% static 'img/logo2.png' %}" border='0' alt='logo2' id="logo">
+      </div>
+   <form id="login" method="POST" class="input-group"> {% csrf_token %}
+ 
+    <div id="Texto">
+      {% if form.errors %}
+        
+
+      <div id='error'>
+        {% for i in form.errors.values %}
+          {{i}}
+          {% endfor %}
+      </div>
+      {% endif %}
+      <div class = "input-field" >
+      {{ form.email }}
+    </div>
+    </div>
+
+    {{ form.non_field_errors }}
+
+      <button type="submit" class="btn">Enviar al correo</button>
+
+     <div id="pes">
+      <p>YA TENES CUENTA? <a href="{% url 'usuarios:login'%}" onclick="register()">INGRESA</a></p>
+       </div>
+     </form>
+
+     
+</div>
+
+</body>
+</html>

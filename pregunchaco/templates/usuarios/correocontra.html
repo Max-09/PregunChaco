@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hola {{ user.username }},
+
+Por favor hace click en el link de abajo para confirmar tu usuario
+
+http://{{ domain }}{% url 'usuarios:password_reset_confirm' uidb64=uid token=token %}
+
+{% endautoescape %}
