@@ -1,10 +1,8 @@
 import random
 
-from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
 from django.shortcuts import render, redirect
-
 
 from . import models
 
@@ -150,7 +148,7 @@ def traer_pregunta(request):
 
 def resultado_correcto(request):
 	actualizar_puntaje(request)
-	print(request.session.get("qcontestadas"))
+
 	if request.session.get("qcontestadas") < 7:
 		contestadas = context.get('contestadas')
 		contestadas.append(True)
@@ -159,13 +157,11 @@ def resultado_correcto(request):
 		lista_preguntas.pop(0)
 		request.session["lista"] = lista_preguntas
 
-
 	else:
-		print("holaaaaaaaaaaa")
-		return reverse_lazy('juego:resultado')
+		pass
 
 def resultado_incorrecto(request):
-	print(request.session.get("qcontestadas"))
+
 	if request.session["qcontestadas"] < 7:
 		contestadas = context.get('contestadas')
 		contestadas.append(False)
@@ -175,8 +171,7 @@ def resultado_incorrecto(request):
 		request.session["lista"] = lista_preguntas
 
 	else:
-		print("chauuuuuuuu")
-		return reverse_lazy('juego:resultado')
+		pass
 
 @login_required
 def pregunta1(request):

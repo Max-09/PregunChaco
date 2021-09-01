@@ -2,9 +2,8 @@ import pandas as pd
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from apps.usuarios.models import Usuario
-from django.db.models import Avg
 from . import models
 
 @login_required
@@ -65,7 +64,7 @@ def mi_estadistica(request):
         except:
             promedio = 0
         categorias[i]['promedio']= promedio
-        context[i] = categorias[i] #PROBLEMA ACA!!!!!!!
+        context[i] = categorias[i] 
         
 
     return render(request,'juego/misestadisticas.html', context)
