@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" href="{% static 'css/Registro.css' %}"></link>
+	<link rel="stylesheet" href="{% static 'css/recuperarcontra.css' %}"></link>
 </head>
 
 <body>
@@ -26,14 +26,15 @@
           {% endfor %}
       </div>
       {% endif %}
-      <div class = "input-field" >
+      <div id="correo-input">
       {{ form.email }}
+        </div>
+      
     </div>
-    </div>
-
+    
     {{ form.non_field_errors }}
 
-      <button type="submit" class="btn">Enviar al correo</button>
+      <button type="submit" class="btn">ENVIAR</button>
 
      <div id="pes">
       <p>YA TENES CUENTA? <a href="{% url 'usuarios:login'%}" onclick="register()">INGRESA</a></p>

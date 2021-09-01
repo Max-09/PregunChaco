@@ -17,7 +17,7 @@ urlpatterns = [
     email_template_name = r'usuarios/correocontra.html'
     ), 
     name='recuperar'),
-    path('reset_password_sent/', auth.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset_password_sent/', auth.PasswordResetDoneView.as_view(template_name=r'usuarios\renovacioncontra.html'), name='password_reset_done'),
     path('recuperarcontrasena/<uidb64>/<token>/', auth.PasswordResetConfirmView.as_view(
         success_url=reverse_lazy('usuarios:password_reset_complete'),
         #form_class = forms.CaptchaPasswordResetChangeForm,
