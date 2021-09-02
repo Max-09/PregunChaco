@@ -185,8 +185,8 @@ body{
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 10px;
-  background: rgb(255,114,119);
-  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
+  background: rgb(247,115,33);
+  background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
   color: #fff;
   content: attr(data-tooltip);
   text-align: center;
