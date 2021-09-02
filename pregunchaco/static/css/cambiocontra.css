@@ -3,19 +3,21 @@
   margin: 0;
   padding: 0;
   cursor: url('/static/img/cursor.png'),auto;
+
 }
 body{
-  height:75vh;
+  height:100vh;
   background: rgb(72,157,228);
   background: linear-gradient(0deg, rgba(72,157,228,1) 0%, rgba(13,222,235,1) 100%);
   background-position: center;
   font-family: "Poppins", Arial;
 }  
+
 #box{
   margin: 14% auto;
   padding: 5% 0 0;
-  width: 450px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
   background: rgb(193,106,213);
   background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
   border-radius: 20px;
@@ -24,11 +26,13 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 #logo{
   width: 380px;
   margin: auto;
-  margin-top: -106px;
+  position: absolute;
+  top: -61px;
 }
 
 .input-group{
@@ -69,11 +73,13 @@ p a{
 #pes{
   margin-top: 35px;
 }
-.btn{
+.btn input{
   text-align: center;
-  width: 60%;
-  margin-left: 70px;
-  margin-top: 15px;
+  text-transform: uppercase;
+  width: 50%;
+  position: absolute;
+  top: 200%;
+  right: 14%;
   padding: 20px 30px;
   cursor: url('/static/img/puntero.png'),auto;
   display: block;
@@ -83,11 +89,13 @@ p a{
   border: none;
   outline: none;
   color: white;
+  font-size: 15px;
 }
 a{
   text-decoration: none;
+   color:  white;
 }
-.btn:hover{
+.btn input:hover{
   background: rgb(247,115,33);
   background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
   color: white;
@@ -113,11 +121,55 @@ a{
   width: 100%;
 }
 
-.contranueva{
+label{
+ opacity: 0;
+}
+
+.contenedor{
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+}
+#texto1, #texto2{
+  width: 130%;
+  height: 30%;
+  padding: 1px;
+}
+
+.forma{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+fieldset{
+  margin-bottom: 150px;
+  border: none;
+}
+#invisible{
+  position: absolute;
+  top: 40%;
+  opacity: 0px;
+  color:  white;
+  font-size: 25px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#box2{
   margin: 14% auto;
   padding: 5% 0 0;
-  width: 450px;
-  height: 500px;
+  width: 550px;
+  height: 250px;
   background: rgb(193,106,213);
   background: linear-gradient(0deg, rgba(193,106,213,1) 0%,       rgba(53,37,175,1) 100%);
   border-radius: 20px;
@@ -127,9 +179,44 @@ a{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border:  none;
 }
 
-label{
-  color: white;
+#boton a{
+  position: absolute;
+  left:  30%;
+  top: 90%;
+  text-align: center;
+  width: 30%;
+  padding: 15px 30px;
+  cursor: url('/static/img/puntero.png'),auto;
+  background: rgb(255,114,119);
+  background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 17px;
 }
+
+#boton a:hover{
+  background: rgb(247,115,33);
+  background: linear-gradient(0deg, rgba(247,115,33,1) 0%, rgba(250,208,91,1) 100%);
+  color: white;
+  transform: translateY(-2px);
+}
+#Texto{
+  width: 100%;
+  margin-left: 10px;
+  display:  flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#error{
+  position: absolute;
+  color: white;
+  width: 350px;
+  top: -10px;
+  right: -420px;
+}
+
+
