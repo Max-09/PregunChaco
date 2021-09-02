@@ -55,7 +55,6 @@ def actualizar_puntaje(request):
 		partida.acierto_6 = F('acierto_6')+1
 	elif categoria == 7:
 		partida.acierto_7 = F('acierto_7')+1
-	print(partida.acierto_1+partida.acierto_2+partida.acierto_3+partida.acierto_4+partida.acierto_5+partida.acierto_6+partida.acierto_7)
 	partida.save() # guardo en BD
 
 
