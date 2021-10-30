@@ -18,6 +18,52 @@ def Register(request):
         form = forms.UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            user.is_active = True
+            user.save()
+            current_site = get_current_site(request)
+            mail_subject = 'Gracias por registrarte'
+            message = render_to_string(
+                'usuarios/email2.html',
+                {
+                    'user': user,
+                    'domain': current_site.domain,
+                }
+            )
+            to_email = form.cleaned_data.get('email')
+            email = EmailMessage(mail_subject, message, to=[to_email])
+            email.send()
+            return render(request, 'usuarios/registrado.html')
+
+
+    else:
+        form = forms.UserRegisterForm()
+    
+    context = {'form': form}
+	
+    return render(request, 'usuarios\Register.html', context)
+
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = Usuario.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, Usuario.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        return redirect('index')
+
+    else:
+        return HttpResponse('Link de activación inválido')
+
+"""
+código con validación del correo
+def Register(request):
+    if request.method == 'POST':
+        form = forms.UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
             user.is_active = False
             user.save()
             current_site = get_current_site(request)
@@ -58,3 +104,4 @@ def activate(request, uidb64, token):
 
     else:
         return HttpResponse('Link de activación inválido')
+        """

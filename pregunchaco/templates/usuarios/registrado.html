@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/correo.css' %}">
+</head>
+<body>
+	<div id="box">
+     <div id="logo">
+        <a target='_blank' align="center"><img src="{% static 'img/logo2.png' %}" border='0' alt='logo2'/></a>
+       </div>
+      <div id="informacion">
+          <h1>GRACIAS POR REGISTRARTE</h1>
+          <p>Ya podés loguearte <a id="login" href="{% url 'usuarios:login'%}" >Presiona aquí</a></p>
+          <div class="time">
+            <span id="timer"></span>
+          </div>
+        </div>
+
+  </div>
+</body>
+<script>
+    var count=5;
+  
+    var counter=setInterval(timer, 1000); 
+  
+    function timer(){
+      count=count-1;
+      if (count <= 0)
+    {
+       clearInterval(counter);
+       location.href="{% url 'usuarios:login'%}";
+       return;
+    }
+  document.getElementById("timer").innerHTML="" + count + ""; 
+  }
+  </script>
+
+</html>
+
+
+
+

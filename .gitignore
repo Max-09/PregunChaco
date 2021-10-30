@@ -127,3 +127,4 @@ pregunchaco/pregunchaco/settings/local.py
 .vscode/launch.json
 pregunchaco/pregunchaco/settings/local.py
 
+*.sqlite3
