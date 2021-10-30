@@ -58,6 +58,12 @@ body{
 #informacion p{
   text-align: center;
   width: 100%;
+  color: white;
+  font-size: 30px;
+}
+#informacion scan{
+  text-align: center;
+  width: 100%;
   color: #FFD12B;
   font-size: 30px;
 }
