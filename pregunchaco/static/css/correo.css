@@ -58,9 +58,10 @@ body{
 #informacion p{
   text-align: center;
   width: 100%;
-  color: white;
-  font-size: 25px;
+  color: #FFD12B;
+  font-size: 30px;
 }
+
 #correos{
   width: 50%;
   position: absolute;
@@ -109,3 +110,4 @@ body{
   visibility: visible;
   opacity: 1;
 }
+

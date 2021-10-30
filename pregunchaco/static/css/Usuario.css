@@ -93,7 +93,7 @@ body{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background: rgb(255,114,119);
   background: linear-gradient(0deg, rgba(255,114,119,1) 0%, rgba(249,81,154,1) 100%);
   border-bottom-right-radius: 15px;
@@ -105,10 +105,10 @@ body{
   padding: 50px;
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
 }
 .socials a:hover{
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .btn{
